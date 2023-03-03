@@ -38,33 +38,21 @@ path:
           description: Successfully created a new artist
         '400':
             # figure out components for this line
-  /example:
-    get:
-      description: Returns example
-      parameters: 
-        # leave blank for now
-        # figure out components first
-      responses:
-        '200':
-          description: Successfully returned example
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  # figure out components for this line
-        '400':
-          # figure out components for this line
-    post:
-      description: Allows user to post example
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              # figure out components for this line
-        responses:
-        '200':
-          description: Successfully created example
-        '400':
-            # figure out components for this line
+      Hello there
+
+components:
+securitySchemes:
+  BasicAuth:
+    type: http
+    scheme: basic
+
+  responses:
+    400Error:
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
