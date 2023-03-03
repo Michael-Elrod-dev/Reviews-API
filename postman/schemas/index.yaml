@@ -6,3 +6,36 @@ info:
 
 security:
   - BasicAuth: []
+
+path:
+  /reviews:
+    get:
+      description: Returns a list of customers reviews
+      parameters: 
+        # leave blank for now
+        # figure out components first
+      responses:
+        '200':
+          description: Successfully returned a list of customer reviews
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  # figure out components for this line
+        '400':
+          # figure out components for this line
+    post:
+      description: Allows user to post review
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              # figure out components for this line
+        responses:
+        '200':
+          description: Successfully created a new artist
+        '400':
+            # figure out components for this line
+      
