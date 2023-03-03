@@ -1,1 +1,8 @@
-Test
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Customer Review API
+  description: API that handles Customer Reivews
+
+security:
+  - BasicAuth: []
