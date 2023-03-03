@@ -38,8 +38,8 @@ path:
           description: Successfully created a new artist
         '400':
             # figure out components for this line
-      Hello there
 
+Hello
 components:
 securitySchemes:
   BasicAuth:
