@@ -40,10 +40,10 @@ path:
             # figure out components for this line
 
 components:
-securitySchemes:
-  BasicAuth:
-    type: http
-    scheme: basic
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
 
   responses:
     400Error:
