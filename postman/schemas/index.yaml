@@ -39,7 +39,6 @@ path:
         '400':
             # figure out components for this line
 
-Hello
 components:
 securitySchemes:
   BasicAuth:
