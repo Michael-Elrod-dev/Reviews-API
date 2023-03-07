@@ -39,6 +39,54 @@ path:
         '400':
             # figure out components for this line
 
+  /reviews/{id}: #Michael
+    get:
+      summary: Retrieve a specific review
+      parameters: # Can change later
+        - name: id
+          in: path
+          description: ID of the review to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved the specified review
+          content:
+            application/json:
+              schema:
+                $ref: #'#/components/schemas/Review'
+
+  /reviews: # Michael
+    get:
+      summary: Retrieve reviews based on query parameters
+      parameters: # Can change later
+        - name: userID
+          in: query
+          description: ID of the user to retrieve reviews for
+          required: false
+          schema:
+            type: integer
+        - name: restaurantsID
+          in: query
+          description: ID of the restaurant to retrieve reviews for
+          required: false
+          schema:
+            type: integer
+        - name: restaruantRating
+          in: query
+          description: Rating of the restaurant to retrieve reviews for
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved the reviews based on the specified rating
+          content:
+            application/json:
+              schema:
+                $ref: #'#/components/schemas/Review'
+
 components:
   securitySchemes:
     BasicAuth:
