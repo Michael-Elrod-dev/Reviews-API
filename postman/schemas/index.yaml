@@ -111,7 +111,7 @@ path:
             application/json:
               schema:
                 $ref: #'#/components/schemas/Review'
-  /health:
+  /health:  #Emma --> unsure if this is exactly what she wants for this or not
     get:
       summary: Gets health of API
         responses:
