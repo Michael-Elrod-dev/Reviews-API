@@ -63,6 +63,20 @@ path:
             application/json:
               schema:
                 $ref: #'#/components/schemas/Review'
+    delete:
+      summary: Deletes review at specified ID
+      parameters:
+        - name: id
+          in: path
+          description: ID of the review to delete
+          requred: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Review at given ID successfully deleted
+        '400':
+          description: Invalid request
 
   /reviews: # Michael
     get:
