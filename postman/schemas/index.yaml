@@ -246,6 +246,42 @@ path:
         '400':
             # figure out components for this line
 
+/reviews/:id/comments:
+    get:
+      description: retrieves all comments for a an existing review
+        requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: string
+        responses:
+        '200':
+          descirption: Successfully retrieved reviews
+          schema:
+            type: object
+            properties:
+              reviews:
+              type: string
+        '400':
+          description: 'Bad request'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Not permitted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: review not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
               
 
 components:
