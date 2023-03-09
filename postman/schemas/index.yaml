@@ -53,13 +53,19 @@ path:
       summary: Retrieve a specific review
       parameters: # Can change later
         - $ref: '#components/parameters/ReviewID' #changed parameter to a component - Emma :)
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: "ID of the review to retrieve"
       responses:
         '200':
           description: Successfully retrieved the specified review
           content:
             application/json:
               schema:
-                $ref: #'#/components/schemas/Review'
+                $ref: '#/components/schemas/Review'
     delete: #Emma
       summary: Deletes review at specified ID
       parameters:
@@ -72,35 +78,55 @@ path:
         '404':
           description: Review with given ID was not found.
 
-  /reviews: # Michael
+  /reviews?restaruantID=:id: # Michael
     get:
-      summary: Retrieve reviews based on query parameters
-      parameters: # Can change later
-        - name: userID
-          in: query
-          description: ID of the user to retrieve reviews for
-          required: false
+      summary: "Retrieve all reviews for a restaurant"
+      parameters:
+        - in: query
+          name: id
           schema:
-            type: integer
-        - name: restaurantsID
-          in: query
-          description: ID of the restaurant to retrieve reviews for
-          required: false
-          schema:
-            type: integer
-        - name: restaruantRating
-          in: query
-          description: Rating of the restaurant to retrieve reviews for
-          required: false
-          schema:
-            type: integer
+            type: string
+          required: true
+          description: "ID of the restaurant to retrieve reviews for"
       responses:
-        '200':
-          description: Successfully retrieved the reviews based on the specified rating
-          content:
-            application/json:
-              schema:
-                $ref: #'#/components/schemas/Review'
+        "200":
+          description: "List all the reviews for the restaurant"
+
+  /reviews?restaurantsID=:id&restaruantRating=N: # Michael
+    get:
+      summary: "Retrieve all reviews for a restaurant with an N-star review"
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: string
+          required: true
+          description: "ID of the restaurant to retrieve reviews for"
+        - in: query
+          name: restaruantRating
+          schema:
+            type: integer
+          required: true
+          description: "Rating to filter reviews by"
+      responses:
+        "200":
+          description: "List all reviews from specific restaurants with an N-star rating"
+
+  /reviews?userID=:id: # Michael
+    get:
+      summary: "Retrieve all reviews from a specific user"
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: string
+          required: true
+          description: "ID of the user to retrieve reviews for"
+      responses:
+        "200":
+          description: "List all reviews from the specific user"
+
+  
   /health:  #Emma --> unsure if this is exactly what she wants for this or not
     get:
       summary: Gets health of API
