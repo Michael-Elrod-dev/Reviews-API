@@ -66,6 +66,45 @@ path:
             application/json:
               schema:
                 $ref: '#/components/schemas/Review'
+
+    patch: #Torrence
+      summary: "add comment to existing review"
+      parameters:
+        - name: id
+          in: path
+          description: 'the id of the review'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Update successful'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: 
+                  message: 
+                    type: string
+        '400':
+          description: 'Bad request'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Not permitted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: review not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
     delete: #Emma
       summary: Deletes review at specified ID
       parameters:
