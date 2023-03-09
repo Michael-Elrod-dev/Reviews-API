@@ -38,12 +38,203 @@ path:
           description: Successfully created a new artist
         '400':
             # figure out components for this line
+    delete:
+      description: Deletes all reviews
+      responses:
+        '204':
+          description: Successfully deleted all reviews
+        '400':
+          $ref: '#components/responses/400Error'
+        '404':
+          description: Reviews not found
+
+  /reviews/{id}: #Michael
+    get:
+      summary: Retrieve a specific review
+      parameters: # Can change later
+        - $ref: '#components/parameters/ReviewID' #changed parameter to a component - Emma :)
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: "ID of the review to retrieve"
+      responses:
+        '200':
+          description: Successfully retrieved the specified review
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Review'
+    delete: #Emma
+      summary: Deletes review at specified ID
+      parameters:
+        - $ref: '#components/parameters/ReviewID'
+      responses:
+        '204':
+          description: Review at given ID was successfully deleted.
+        '400':
+          $ref: '#components/responses/400Error'
+        '404':
+          description: Review with given ID was not found.
+
+  /reviews?restaruantID=:id: # Michael
+    get:
+      summary: "Retrieve all reviews for a restaurant"
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: string
+          required: true
+          description: "ID of the restaurant to retrieve reviews for"
+      responses:
+        "200":
+          description: "List all the reviews for the restaurant"
+    
+
+  /reviews?restaurantsID=:id&restaruantRating=N: # Michael
+    get:
+      summary: "Retrieve all reviews for a restaurant with an N-star review"
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: string
+          required: true
+          description: "ID of the restaurant to retrieve reviews for"
+        - in: query
+          name: restaruantRating
+          schema:
+            type: integer
+          required: true
+          description: "Rating to filter reviews by"
+      responses:
+        "200":
+          description: "List all reviews from specific restaurants with an N-star rating"
+
+  /reviews?userID=:id: # Michael
+    get:
+      summary: "Retrieve all reviews from a specific user"
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: string
+          required: true
+          description: "ID of the user to retrieve reviews for"
+      responses:
+        "200":
+          description: "List all reviews from the specific user"
+
+  
+  /health:  #Emma --> unsure if this is exactly what she wants for this or not
+    get:
+      summary: Gets health of API
+        responses:
+          '200':
+            description: Successful call to health
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    server_health:
+                      type: string
+
+/reviews: # Dhruvisha
+    post:
+      description: Lets a customer post a review for a restaurant
+        requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              # figure out components for this line
+        responses:
+        '200':
+          description: Successfully added a new review for a restaurant 
+        '400':
+            # figure out components for this line
+
+/reviews: # Dhruvisha
+    post:
+      description: Lets a customer post a review for a driver
+        requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              # figure out components for this line
+        responses:
+        '200':
+          description: Successfully added a new review for a driver 
+        '400':
+            # figure out components for this line
+
+/reviews: # Dhruvisha
+    post:
+      description: Lets a customer post a comment for an existing review
+        requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              # figure out components for this line
+        responses:
+        '200':
+          description: Successfully added a new comment for an existing review
+        '400':
+            # figure out components for this line
+
+//reviews?driverID=:id: #Torrence
+  get:
+    description: Lets driver get reviews for themeselves
+      requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: string
+      responses:
+      '200':
+        descirption: Successfully retrieved reviews
+        schema:
+          type: object
+          properties:
+            reviews:
+            type: string
+
+      '400':
+        $ref: "#/components/responses/400Error"
+  
+  post:
+    description: Add review for a driver
+    requestBody:
+    required: true
+    content:
+      application/json:
+      schema
+
+    
+
+              
 
 components:
-securitySchemes:
-  BasicAuth:
-    type: http
-    scheme: basic
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+  
+  parameters:
+    ReviewID:
+      name: id
+      in: path
+      description: ID of the review to delete
+      required: true
+      schema:
+        type: integer
+
   responses:
     400Error:
       description: Invalid request
