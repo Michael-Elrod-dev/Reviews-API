@@ -68,7 +68,7 @@ path:
                 $ref: '#/components/schemas/Review'
 
     patch: #Torrence
-      summary: "add comment to existing review"
+      summary: "edit to existing review"
       parameters:
         - name: id
           in: path
