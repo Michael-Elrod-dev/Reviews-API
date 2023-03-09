@@ -39,13 +39,11 @@ path:
         '400':
             # figure out components for this line
 
-Hello
 components:
 securitySchemes:
   BasicAuth:
     type: http
     scheme: basic
-
   responses:
     400Error:
       description: Invalid request
@@ -56,3 +54,4 @@ securitySchemes:
             properties:
               message:
                 type: string
+
