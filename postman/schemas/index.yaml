@@ -76,11 +76,11 @@ path:
             type: integer
       responses:
         '204':
-          description: Review at given ID successfully deleted
+          description: Review at given ID was successfully deleted.
         '400':
           $ref: '#components/responses/400Error'
         '404':
-          description: Review with given ID not found
+          description: Review with given ID was not found.
 
   /reviews: # Michael
     get:
@@ -111,12 +111,26 @@ path:
             application/json:
               schema:
                 $ref: #'#/components/schemas/Review'
+  /health:
+    get:
+      summary: Gets health of API
+        responses:
+          '200':
+            description: Successful call to health
+            content:
+              
 
 components:
   securitySchemes:
     BasicAuth:
       type: http
       scheme: basic
+  schemas:
+    Health:
+      type: object
+      properties:
+        server_healtH:
+          type: string
 
   responses:
     400Error:
@@ -128,3 +142,4 @@ components:
             properties:
               message:
                 type: string
+
