@@ -114,6 +114,53 @@ path:
                   properties:
                     server_health:
                       type: string
+
+/reviews: # Dhruvisha
+    post:
+      description: Lets a customer post a review for a restaurant
+        requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              # figure out components for this line
+        responses:
+        '200':
+          description: Successfully added a new review for a restaurant 
+        '400':
+            # figure out components for this line
+
+/reviews: # Dhruvisha
+    post:
+      description: Lets a customer post a review for a driver
+        requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              # figure out components for this line
+        responses:
+        '200':
+          description: Successfully added a new review for a driver 
+        '400':
+            # figure out components for this line
+
+/reviews: # Dhruvisha
+    post:
+      description: Lets a customer post a comment for an existing review
+        requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              # figure out components for this line
+        responses:
+        '200':
+          description: Successfully added a new comment for an existing review
+        '400':
+            # figure out components for this line
+
+
               
 
 components:
