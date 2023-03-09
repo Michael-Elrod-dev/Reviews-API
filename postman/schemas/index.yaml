@@ -108,6 +108,12 @@ path:
           '200':
             description: Successful call to health
             content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    server_health:
+                      type: string
               
 
 components:
@@ -115,12 +121,7 @@ components:
     BasicAuth:
       type: http
       scheme: basic
-  schemas:
-    Health:
-      type: object
-      properties:
-        server_healtH:
-          type: string
+  
   parameters:
     ReviewID:
       name: id
