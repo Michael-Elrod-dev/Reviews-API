@@ -41,10 +41,12 @@ path:
     delete:
       description: Deletes all reviews
       responses:
-        '200':
+        '204':
           description: Successfully deleted all reviews
         '400':
-          description: Invalid request
+          $ref: '#components/responses/400Error'
+        '404':
+          description: Reviews not found
 
   /reviews/{id}: #Michael
     get:
@@ -73,10 +75,12 @@ path:
           schema:
             type: integer
       responses:
-        '200':
+        '204':
           description: Review at given ID successfully deleted
         '400':
-          description: Invalid request
+          $ref: '#components/responses/400Error'
+        '404':
+          description: Review with given ID not found
 
   /reviews: # Michael
     get:
