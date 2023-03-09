@@ -38,6 +38,13 @@ path:
           description: Successfully created a new artist
         '400':
             # figure out components for this line
+    delete:
+      description: Deletes all reviews
+      responses:
+        '200':
+          description: Successfully deleted all reviews
+        '400':
+          description: Invalid request
 
   /reviews/{id}: #Michael
     get:
