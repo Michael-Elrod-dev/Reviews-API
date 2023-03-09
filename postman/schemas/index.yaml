@@ -187,7 +187,7 @@ path:
         '400':
             # figure out components for this line
 
-//reviews?driverID=:id: #Torrence
+/reviews?driverID=:id: #Torrence
   get:
     description: Lets driver get reviews for themeselves
       requestBody:
@@ -214,7 +214,7 @@ path:
     required: true
     content:
       application/json:
-      schema
+      schema:
 
     
 
