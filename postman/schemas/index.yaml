@@ -52,12 +52,7 @@ path:
     get:
       summary: Retrieve a specific review
       parameters: # Can change later
-        - name: id
-          in: path
-          description: ID of the review to retrieve
-          required: true
-          schema:
-            type: integer
+        - $ref: '#components/parameters/ReviewID' #changed parameter to a component - Emma :)
       responses:
         '200':
           description: Successfully retrieved the specified review
@@ -65,15 +60,10 @@ path:
             application/json:
               schema:
                 $ref: #'#/components/schemas/Review'
-    delete:
+    delete: #Emma
       summary: Deletes review at specified ID
       parameters:
-        - name: id
-          in: path
-          description: ID of the review to delete
-          requred: true
-          schema:
-            type: integer
+        - $ref: '#components/parameters/ReviewID'
       responses:
         '204':
           description: Review at given ID was successfully deleted.
@@ -131,6 +121,14 @@ components:
       properties:
         server_healtH:
           type: string
+  parameters:
+    ReviewID:
+      name: id
+      in: path
+      description: ID of the review to delete
+      required: true
+      schema:
+        type: integer
 
   responses:
     400Error:
