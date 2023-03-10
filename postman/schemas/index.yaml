@@ -66,7 +66,12 @@ path:
             application/json:
               schema:
                 $ref: '#/components/schemas/Review'
-
+        '400':
+          description: 'Bad request'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
     patch: #Torrence
       summary: "edit to existing review"
       parameters:
@@ -104,7 +109,6 @@ path:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
     delete: #Emma
       summary: Deletes review at specified ID
       parameters:
@@ -117,88 +121,57 @@ path:
         '404':
           description: Review with given ID was not found.
 
-  /reviews?restaruantID=:id: # Michael
+  /reviews/restaruant/{id}: # Michael
     get:
       summary: "Retrieve all reviews for a restaurant"
       parameters:
-        - in: query
-          name: id
+        - in: path
+          name: restaruantID
           schema:
-            type: string
+            type: integer
           required: true
           description: "ID of the restaurant to retrieve reviews for"
-      responses:
-        "200":
-          description: "List all the reviews for the restaurant"
-    
-
-  /reviews?restaurantsID=:id&restaruantRating=N: # Michael
-    get:
-      summary: "Retrieve all reviews for a restaurant with an N-star review"
       parameters:
-        - in: query
-          name: id
-          schema:
-            type: string
-          required: true
-          description: "ID of the restaurant to retrieve reviews for"
         - in: query
           name: restaruantRating
           schema:
             type: integer
-          required: true
-          description: "Rating to filter reviews by"
+          required: false
+          description: "Rating of the restaurant to retrieve reviews for"
       responses:
         "200":
-          description: "List all reviews from specific restaurants with an N-star rating"
+          description: "List all the reviews based on parameters"
+      post: # Dhruvisha
+        description: Lets a customer post a review for a restaurant
+          requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                # figure out components for this line
+          responses:
+          '200':
+            description: Successfully added a new review for a restaurant 
+          '400':
+              # figure out components for this line
 
-  /reviews?userID=:id: # Michael
+  /reviews/user/{id}: # Michael
     get:
       summary: "Retrieve all reviews from a specific user"
       parameters:
-        - in: query
+        - in: path
           name: id
           schema:
-            type: string
+            type: integer
           required: true
           description: "ID of the user to retrieve reviews for"
       responses:
         "200":
           description: "List all reviews from the specific user"
 
-  
-  /health:  #Emma --> unsure if this is exactly what she wants for this or not
+  /reviews/driver/{id}:  # Dhruvisha & Torrence
     get:
-      summary: Gets health of API
-        responses:
-          '200':
-            description: Successful call to health
-            content:
-              application/json:
-                schema:
-                  type: object
-                  properties:
-                    server_health:
-                      type: string
-
-/reviews: # Dhruvisha
-    post:
-      description: Lets a customer post a review for a restaurant
-        requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              # figure out components for this line
-        responses:
-        '200':
-          description: Successfully added a new review for a restaurant 
-        '400':
-            # figure out components for this line
-
-/reviews?driverID=:id:  # Dhruvisha & Torrence
-    get:
-      description: Lets driver get reviews for themeselves
+      description: Retrieve all reviews for a driver
         requestBody:
         required: true
         content:
@@ -213,12 +186,10 @@ path:
             properties:
               reviews:
               type: string
-
         '400':
           $ref: "#/components/responses/400Error"
-
     post:
-      description: Lets a customer post a review for a driver
+      description: Add a review for a driver
         requestBody:
         required: true
         content:
@@ -231,24 +202,9 @@ path:
         '400':
             # figure out components for this line
 
-/reviews: # Dhruvisha
-    post:
-      description: Lets a customer post a comment for an existing review
-        requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              # figure out components for this line
-        responses:
-        '200':
-          description: Successfully added a new comment for an existing review
-        '400':
-            # figure out components for this line
-
-/reviews/:id/comments:
+  /reviews/{id}]/comments:
     get:
-      description: retrieves all comments for a an existing review
+      description: retrieves all comments for an existing review
         requestBody:
         required: true
         content:
@@ -281,8 +237,33 @@ path:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+    post: # Dhruvisha
+      description: Add a comment for an existing review
+        requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              # figure out components for this line
+        responses:
+        '200':
+          description: Successfully added a new comment for an existing review
+        '400':
+            # figure out components for this line
 
-              
+  /health:  #Emma --> unsure if this is exactly what she wants for this or not
+    get:
+      summary: Gets health of API
+        responses:
+          '200':
+            description: Successful call to health
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    server_health:
+                      type: string
 
 components:
   securitySchemes:
@@ -309,4 +290,3 @@ components:
             properties:
               message:
                 type: string
-
