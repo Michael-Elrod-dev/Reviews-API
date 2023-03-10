@@ -25,19 +25,19 @@ path:
                   # figure out components for this line
         '400':
           $ref: '#components/responses/400Error'
-    post:
-      description: Allows user to post review
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              # figure out components for this line
-        responses:
-        '200':
-          description: Successfully created a new artist
-        '400':
-          $ref: '#components/responses/400Error'
+  #  post:
+  #    description: Allows user to post review
+  #    requestBody:
+  #      required: true
+  #      content:
+  #        application/json:
+  #          schema:
+  #            # figure out components for this line
+  #      responses:
+  #      '200':
+  #        description: Successfully created a new artist
+  #      '400':
+  #        $ref: '#components/responses/400Error'
     delete:
       description: Deletes all reviews
       responses:
@@ -152,6 +152,7 @@ path:
             description: Successfully added a new review for a restaurant 
           '400':
             $ref: '#components/responses/400Error'
+      delete: #TODO
 
   /reviews/driver/{id}:  # Dhruvisha & Torrence
     get:
@@ -185,6 +186,7 @@ path:
           description: Successfully added a new review for a driver 
         '400':
           $ref: '#components/responses/400Error'
+    delete: #TODO
 
   /reviews/{id}/comments:
     get:
@@ -230,13 +232,14 @@ path:
           description: Successfully added a new comment for an existing review
         '400':
           $ref: '#components/responses/400Error'
+    delete: #TODO
 
   /reviews/{id}/comments/{id}:
-    get:
+    get: #TODO
 
-    patch:
+    patch: #TODO
 
-    delete:
+    delete: #TODO
 
   /reviews/user/{id}: # Michael
     get:
@@ -261,6 +264,7 @@ path:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+    delete: #TODO
 
   /health:  #Emma --> unsure if this is exactly what she wants for this or not
     get:
@@ -276,6 +280,8 @@ path:
                     server_health:
                       type: string
 
+#TODO: make more components probably... any time we are
+#getting back a review we should have a review component
 components:
   securitySchemes:
     BasicAuth:
