@@ -24,7 +24,7 @@ path:
                 items:
                   # figure out components for this line
         '400':
-          # figure out components for this line
+          $ref: '#components/responses/400Error'
     post:
       description: Allows user to post review
       requestBody:
@@ -37,7 +37,7 @@ path:
         '200':
           description: Successfully created a new artist
         '400':
-            # figure out components for this line
+          $ref: '#components/responses/400Error'
     delete:
       description: Deletes all reviews
       responses:
@@ -67,11 +67,7 @@ path:
               schema:
                 $ref: '#/components/schemas/Review'
         '400':
-          description: 'Bad request'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+          $ref: '#components/responses/400Error'
     patch: #Torrence
       summary: "edit to existing review"
       parameters:
@@ -92,11 +88,7 @@ path:
                   message: 
                     type: string
         '400':
-          description: 'Bad request'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+          $ref: '#components/responses/400Error'
         '403':
           description: Not permitted
           content:
@@ -146,11 +138,7 @@ path:
               schema:
                 $ref: '#/components/schemas/Review'
         '400':
-          description: 'Bad request'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+          $ref: '#components/responses/400Error'
       post: # Dhruvisha
         description: Lets a customer post a review for a restaurant
           requestBody:
@@ -163,7 +151,7 @@ path:
           '200':
             description: Successfully added a new review for a restaurant 
           '400':
-              # figure out components for this line
+            $ref: '#components/responses/400Error'
 
   /reviews/driver/{id}:  # Dhruvisha & Torrence
     get:
@@ -196,9 +184,9 @@ path:
         '200':
           description: Successfully added a new review for a driver 
         '400':
-            # figure out components for this line
+          $ref: '#components/responses/400Error'
 
-  /reviews/{id}]/comments:
+  /reviews/{id}/comments:
     get:
       description: retrieves all comments for an existing review
         requestBody:
@@ -216,11 +204,7 @@ path:
               reviews:
               type: string
         '400':
-          description: 'Bad request'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+          $ref: '#components/responses/400Error'
         '403':
           description: Not permitted
           content:
@@ -245,7 +229,7 @@ path:
         '200':
           description: Successfully added a new comment for an existing review
         '400':
-            # figure out components for this line
+          $ref: '#components/responses/400Error'
 
   /reviews/{id}/comments/{id}:
     get:
