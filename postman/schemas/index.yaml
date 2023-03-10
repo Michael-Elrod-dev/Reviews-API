@@ -139,8 +139,18 @@ path:
           required: false
           description: "Rating of the restaurant to retrieve reviews for"
       responses:
-        "200":
-          description: "List all the reviews based on parameters"
+        '200':
+          description: Successfully list the specified review
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Review'
+        '400':
+          description: 'Bad request'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       post: # Dhruvisha
         description: Lets a customer post a review for a restaurant
           requestBody:
@@ -154,20 +164,6 @@ path:
             description: Successfully added a new review for a restaurant 
           '400':
               # figure out components for this line
-
-  /reviews/user/{id}: # Michael
-    get:
-      summary: "Retrieve all reviews from a specific user"
-      parameters:
-        - in: path
-          name: id
-          schema:
-            type: integer
-          required: true
-          description: "ID of the user to retrieve reviews for"
-      responses:
-        "200":
-          description: "List all reviews from the specific user"
 
   /reviews/driver/{id}:  # Dhruvisha & Torrence
     get:
@@ -250,6 +246,37 @@ path:
           description: Successfully added a new comment for an existing review
         '400':
             # figure out components for this line
+
+  /reviews/{id}/comments/{id}:
+    get:
+
+    patch:
+
+    delete:
+
+  /reviews/user/{id}: # Michael
+    get:
+      summary: "Retrieve all reviews from a specific user"
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: "ID of the user to retrieve reviews for"
+      responses:
+        '200':
+          description: Successfully list the review from the specified user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Review'
+        '400':
+          description: 'Bad request'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 
   /health:  #Emma --> unsure if this is exactly what she wants for this or not
     get:
