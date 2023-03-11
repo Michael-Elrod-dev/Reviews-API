@@ -48,6 +48,10 @@ path:
           $ref: '#components/responses/400Error'
         '404':
           description: Reviews not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMsg'
 
   /reviews/{id}: #Michael
     get:
@@ -90,7 +94,7 @@ path:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ErrorMsg'
     delete: #Emma
       description: Deletes review at specified ID
       parameters:
@@ -102,6 +106,10 @@ path:
           $ref: '#components/responses/400Error'
         '404':
           description: Review with given ID was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMsg'
 
   /reviews/restaruant/{id}: # Michael
     get:
@@ -149,6 +157,10 @@ path:
             $ref: '#components/responses/400Error'
           '404':
             description: Restaurant reviews not found
+            content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMsg'
 
 
   /reviews/driver/{id}:  # Dhruvisha & Torrence
@@ -204,6 +216,10 @@ path:
           $ref: '#components/responses/400Error'
         '404':
           description: Driver reviews not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMsg'
 
   /reviews/{id}/comments:
     get:
@@ -237,7 +253,7 @@ path:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ErrorMsg'
     post: # Dhruvisha
       description: Add a comment for an existing review
         requestBody:
@@ -282,11 +298,7 @@ path:
               schema:
                 $ref: '#/components/schemas/Review'
         '400':
-          description: 'Bad request'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+          $ref: '#/components/responses/400Error'
     delete: #TODO
 
   /health:  #Emma --> unsure if this is exactly what she wants for this or not
@@ -310,6 +322,11 @@ components:
     BasicAuth:
       type: http
       scheme: basic
+  ErrorMsg:
+    type: object
+    properties:   
+      message:
+        type: string
   
   parameters:
     ReviewID:
