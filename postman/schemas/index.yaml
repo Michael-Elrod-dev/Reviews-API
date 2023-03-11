@@ -14,6 +14,7 @@ path:
       parameters: 
         # leave blank for now
         # figure out components first
+        # note from emma: i think this does not have any parameters :)
       responses:
         '200':
           description: Successfully returned a list of customer reviews
@@ -53,12 +54,6 @@ path:
       description: Retrieve a specific review
       parameters: # Can change later
         - $ref: '#components/parameters/ReviewID' #changed parameter to a component - Emma :)
-        - in: path
-          name: id
-          schema:
-            type: integer
-          required: true
-          description: "ID of the review to retrieve"
       responses:
         '200':
           description: Successfully retrieved the specified review
@@ -71,12 +66,7 @@ path:
     patch: #Torrence
       description: "edit to existing review"
       parameters:
-        - name: id
-          in: path
-          description: 'the id of the review'
-          required: true
-          schema:
-            type: string
+        - $ref: '#components/parameters/ReviewID'
       responses:
         '200':
           description: 'Update successful'
@@ -117,13 +107,7 @@ path:
     get:
       description: "Retrieve all reviews for a restaurant"
       parameters:
-        - in: path
-          name: restaruantID
-          schema:
-            type: integer
-          required: true
-          description: "ID of the restaurant to retrieve reviews for"
-      parameters:
+        - $ref: '#components/parameters/RestaurantID'
         - in: query
           name: restaruantRating
           schema:
@@ -147,12 +131,16 @@ path:
             application/json:
               schema:
                 # figure out components for this line
-          responses:
+        parameters:
+        - $ref: '#components/parameters/RestaurantID'
+        responses:
           '200':
             description: Successfully added a new review for a restaurant 
           '400':
             $ref: '#components/responses/400Error'
       delete: #TODO
+        parameters:
+        - $ref: '#components/parameters/RestaurantID'
 
   /reviews/driver/{id}:  # Dhruvisha & Torrence
     get:
@@ -163,7 +151,9 @@ path:
           application/json:
             schema:
               type: string
-        responses:
+      parameters:
+        - $ref: '#components/parameters/DriverID'
+      responses:
         '200':
           descirption: Successfully retrieved reviews
           schema:
@@ -181,12 +171,16 @@ path:
           application/json:
             schema:
               # figure out components for this line
-        responses:
+      parameters:
+        - $ref: '#components/parameters/DriverID'
+      responses:
         '200':
           description: Successfully added a new review for a driver 
         '400':
           $ref: '#components/responses/400Error'
     delete: #TODO
+      parameters:
+        - $ref: '#components/parameters/DriverID'
 
   /reviews/{id}/comments:
     get:
@@ -197,7 +191,9 @@ path:
           application/json:
             schema:
               type: string
-        responses:
+      parameters:
+        - $ref: '#components/parameters/ReviewID'
+      responses:
         '200':
           descirption: Successfully retrieved reviews
           schema:
@@ -227,7 +223,9 @@ path:
           application/json:
             schema:
               # figure out components for this line
-        responses:
+      parameters:
+        - $ref: '#components/parameters/ReviewID'
+      responses:
         '200':
           description: Successfully added a new comment for an existing review
         '400':
@@ -236,21 +234,20 @@ path:
 
   /reviews/{id}/comments/{id}:
     get: #TODO
-
+      parameters:
+        - $ref: '#components/parameters/ReviewID'
     patch: #TODO
-
+      parameters:
+        - $ref: '#components/parameters/ReviewID'
     delete: #TODO
+      parameters:
+        - $ref: '#components/parameters/ReviewID'
 
   /reviews/user/{id}: # Michael
     get:
       description: "Retrieve all reviews from a specific user"
       parameters:
-        - in: path
-          name: id
-          schema:
-            type: integer
-          required: true
-          description: "ID of the user to retrieve reviews for"
+        - $ref: '#components/parameters/UserID'
       responses:
         '200':
           description: Successfully list the review from the specified user
@@ -269,16 +266,16 @@ path:
   /health:  #Emma --> unsure if this is exactly what she wants for this or not
     get:
       description: Gets health of API
-        responses:
-          '200':
-            description: Successful call to health
-            content:
-              application/json:
-                schema:
-                  type: object
-                  properties:
-                    server_health:
-                      type: string
+      responses:
+        '200':
+          description: Successful call to health
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  server_health:
+                    type: string
 
 #TODO: make more components probably... any time we are
 #getting back a review we should have a review component
@@ -290,9 +287,30 @@ components:
   
   parameters:
     ReviewID:
-      name: id
+      name: review-id
       in: path
       description: ID of the review
+      required: true
+      schema:
+        type: integer
+    CommentID:
+      name: comment-id
+      in: path
+      description: ID of the comment
+      required: true
+      schema:
+        type: integer
+    RestaurantID:
+      name: restaurant-id
+      in: path
+      description: ID of the restaurant
+      required: true
+      schema:
+        type: integer
+    DriverID:
+      name: driver-id
+      in: path
+      description: ID of the driver
       required: true
       schema:
         type: integer
