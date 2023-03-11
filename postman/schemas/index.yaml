@@ -138,9 +138,18 @@ path:
             description: Successfully added a new review for a restaurant 
           '400':
             $ref: '#components/responses/400Error'
-      delete: #TODO
+      delete:
+        description: Deletes all reviews for a restaurant
         parameters:
         - $ref: '#components/parameters/RestaurantID'
+        responses:
+          '204':
+            description: Successfully deleted all reviews for given restaurant
+          '400':
+            $ref: '#components/responses/400Error'
+          '404':
+            description: Restaurant reviews not found
+
 
   /reviews/driver/{id}:  # Dhruvisha & Torrence
     get:
@@ -184,9 +193,17 @@ path:
           description: Successfully added a new review for a driver 
         '400':
           $ref: '#components/responses/400Error'
-    delete: #TODO
+    delete:
+      description: Deletes all reviews for a driver
       parameters:
         - $ref: '#components/parameters/DriverID'
+      responses:
+        '204':
+          description: Successfully deleted all reviews for given driver
+        '400':
+          $ref: '#components/responses/400Error'
+        '404':
+          description: Driver reviews not found
 
   /reviews/{id}/comments:
     get:
