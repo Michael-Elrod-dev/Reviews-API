@@ -26,19 +26,7 @@ path:
                   # figure out components for this line
         '400':
           $ref: '#components/responses/400Error'
-  #  post:
-  #    description: Allows user to post review
-  #    requestBody:
-  #      required: true
-  #      content:
-  #        application/json:
-  #          schema:
-  #            # figure out components for this line
-  #      responses:
-  #      '200':
-  #        description: Successfully created a new artist
-  #      '400':
-  #        $ref: '#components/responses/400Error'
+    #removed unnecessary POST request here -- whoever sees this can delete this line :)
     delete:
       description: Deletes all reviews
       responses:
@@ -272,15 +260,15 @@ path:
     delete: #TODO
 
   /reviews/{id}/comments/{id}:
-    get: #TODO
+    get: #TODO (everything but params)
       parameters:
         - $ref: '#components/parameters/ReviewID'
         - $ref: '#components/parameters/CommentID'
-    patch: #TODO
+    patch: #TODO (everything but params)
       parameters:
         - $ref: '#components/parameters/ReviewID'
         - $ref: '#components/parameters/CommentID'
-    delete: #TODO
+    delete: #TODO (everything but params)
       parameters:
         - $ref: '#components/parameters/ReviewID'
         - $ref: '#components/parameters/CommentID'
@@ -322,11 +310,15 @@ components:
     BasicAuth:
       type: http
       scheme: basic
-  ErrorMsg:
-    type: object
-    properties:   
-      message:
-        type: string
+  
+  schemas:
+    ErrorMsg:
+      type: object
+      properties:   
+        message:
+          type: string
+  #TODO: make a Reviews scheme
+  #TODO: make a SingleReview scheme
   
   parameters:
     ReviewID:
