@@ -320,12 +320,12 @@ components:
     Review:
       type: object
       required:
-      - id
+      - Review-id
       - rating
-      - user
-      - driver/restuarant
+      - userId
+      - driver-id/restuarant-id
       - comment
-      - published
+      - published/date
       properties:
         id:
           type: string
