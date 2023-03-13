@@ -126,7 +126,7 @@ path:
           content:
             application/json:
               schema:
-                # figure out components for this line
+                type: string
         parameters:
         - $ref: '#components/parameters/RestaurantID'
         responses:
@@ -185,7 +185,7 @@ path:
         content:
           application/json:
             schema:
-              # figure out components for this line
+              type: string
       parameters:
         - $ref: '#components/parameters/DriverID'
       responses:
@@ -249,7 +249,7 @@ path:
         content:
           application/json:
             schema:
-              # figure out components for this line
+              type: string
       parameters:
         - $ref: '#components/parameters/ReviewID'
       responses:
