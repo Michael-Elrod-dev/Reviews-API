@@ -93,7 +93,7 @@ paths:
               schema:
                 $ref: '#/components/responses/404Error'
 
-  /reviews/restaruant/{id}: # Michael
+  /reviews/restaruant/{RestaurantID}: # Michael
     get:
       description: "Retrieve all reviews for a restaurant"
       parameters:
