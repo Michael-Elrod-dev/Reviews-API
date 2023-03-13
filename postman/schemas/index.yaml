@@ -35,7 +35,7 @@ paths:
               schema:
                 $ref: '#/components/responses/404Error'
 
-  /reviews/{id}: #Michael
+  /reviews/{ReviewID}: #Michael
     get:
       description: Retrieve a specific review
       parameters: # Can change later
@@ -145,7 +145,7 @@ paths:
                 $ref: '#/components/responses/404Error'
 
 
-  /reviews/driver/{id}:  # Dhruvisha & Torrence
+  /reviews/driver/{DriverID}:  # Dhruvisha & Torrence
     get:
       description: Retrieve all reviews for a driver
       requestBody:
@@ -205,7 +205,7 @@ paths:
               schema:
                 $ref: '#/components/responses/404Error'
 
-  /reviews/{id}/comments:
+  /reviews/{ReviewID}/comments:
     get:
       description: retrieves all comments for an existing review
       requestBody:
@@ -257,7 +257,7 @@ paths:
           $ref: '#components/responses/400Error'
     #delete: #TODO
 
-  /reviews/{id}/comments/{id}:
+  /reviews/{ReviewID}/comments/{CommentID}:
     get: #TODO (everything but params)
       parameters:
         - $ref: '#components/parameters/ReviewID'
@@ -280,7 +280,7 @@ paths:
         '200':
           description: Success
 
-  /reviews/user/{id}: # Michael
+  /reviews/user/{UserID}: # Michael
     get:
       description: "Retrieve all reviews from a specific user"
       parameters:
