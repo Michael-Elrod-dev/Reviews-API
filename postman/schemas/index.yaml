@@ -380,7 +380,7 @@ paths:
         '400':
           $ref: '#/components/responses/400Error'
     # delete: #TODO
-  /health:  #Emma --> unsure if this is exactly what she wants for this or not
+  /health:  #Emma
     get:
       description: Gets health of API
       responses:
