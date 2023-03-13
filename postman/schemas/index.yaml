@@ -119,36 +119,36 @@ paths:
                 $ref: '#/components/schemas/ReviewList'
         '400':
           $ref: '#components/responses/400Error'
-      post: # Dhruvisha
-        description: Lets a customer post a review for a restaurant
-          requestBody:
-          required: true
+    post: # Dhruvisha
+      description: Lets a customer post a review for a restaurant
+        requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: string
+      parameters:
+      - $ref: '#components/parameters/RestaurantID'
+      responses:
+        '200':
+          description: Successfully added a new review for a restaurant 
+        '400':
+          $ref: '#components/responses/400Error'
+    delete:
+      description: Deletes all reviews for a restaurant
+      parameters:
+      - $ref: '#components/parameters/RestaurantID'
+      responses:
+        '204':
+          description: Successfully deleted all reviews for given restaurant
+        '400':
+          $ref: '#components/responses/400Error'
+        '404':
+          description: Restaurant reviews not found
           content:
-            application/json:
-              schema:
-                type: string
-        parameters:
-        - $ref: '#components/parameters/RestaurantID'
-        responses:
-          '200':
-            description: Successfully added a new review for a restaurant 
-          '400':
-            $ref: '#components/responses/400Error'
-      delete:
-        description: Deletes all reviews for a restaurant
-        parameters:
-        - $ref: '#components/parameters/RestaurantID'
-        responses:
-          '204':
-            description: Successfully deleted all reviews for given restaurant
-          '400':
-            $ref: '#components/responses/400Error'
-          '404':
-            description: Restaurant reviews not found
-            content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/404Error'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/404Error'
 
 
   /reviews/driver/{id}:  # Dhruvisha & Torrence
