@@ -330,7 +330,7 @@ components:
         id:
           type: string
         rating: 
-          type: double
+          type: number
         comment:
           type: string
         user:
@@ -338,9 +338,9 @@ components:
         driver:
           type: string
         restuarant:
-        type: string
+          type: string
         published:
-        type: int
+          type: number
   #TODO: make a Reviews scheme
   #TODO: make a SingleReview scheme
   
