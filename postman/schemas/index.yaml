@@ -39,7 +39,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorMsg'
+                $ref: '#/components/schemas/404Error'
 
   /reviews/{id}: #Michael
     get:
@@ -82,7 +82,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorMsg'
+                $ref: '#/components/schemas/404Error'
     delete: #Emma
       description: Deletes review at specified ID
       parameters:
@@ -97,7 +97,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorMsg'
+                $ref: '#/components/schemas/404Error'
 
   /reviews/restaruant/{id}: # Michael
     get:
@@ -148,7 +148,7 @@ paths:
             content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorMsg'
+                $ref: '#/components/schemas/404Error'
 
 
   /reviews/driver/{id}:  # Dhruvisha & Torrence
@@ -207,7 +207,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorMsg'
+                $ref: '#/components/schemas/404Error'
 
   /reviews/{id}/comments:
     get:
@@ -338,9 +338,9 @@ components:
         driver:
           type: string
         restuarant:
-        type: string
+          type: string
         published:
-        type: int
+          type: int
   #TODO: make a Reviews scheme
   #TODO: make a SingleReview scheme
   
@@ -391,3 +391,12 @@ components:
             properties:
               message:
                 type: string
+    404Error:
+      description: Review not found with given ID
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+              type: string
