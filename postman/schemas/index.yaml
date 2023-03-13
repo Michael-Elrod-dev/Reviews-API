@@ -116,7 +116,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Review'
+                $ref: '#/components/schemas/ReviewList'
         '400':
           $ref: '#components/responses/400Error'
       post: # Dhruvisha
@@ -162,7 +162,7 @@ paths:
               type: string
       parameters:
         - $ref: '#components/parameters/DriverID'
-        - in: query
+        - in: path
           name: driverRating
           schema:
             type: integer
