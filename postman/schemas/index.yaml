@@ -121,22 +121,14 @@ paths:
           $ref: '#components/responses/400Error'
     post: # Dhruvisha
       description: Lets a customer post a review for a restaurant
-<<<<<<< HEAD
       requestBody:
-=======
-        requestBody:
->>>>>>> 8f11c9872619d1f77fd94955ebc8eee54a3fe1cb
         required: true
         content:
           application/json:
             schema:
               type: string
       parameters:
-<<<<<<< HEAD
         - $ref: '#components/parameters/RestaurantID'
-=======
-      - $ref: '#components/parameters/RestaurantID'
->>>>>>> 8f11c9872619d1f77fd94955ebc8eee54a3fe1cb
       responses:
         '200':
           description: Successfully added a new review for a restaurant 
@@ -360,11 +352,7 @@ components:
         restuarant:
           type: string
         published:
-<<<<<<< HEAD
           type: string
-=======
-          type: number
->>>>>>> 8f11c9872619d1f77fd94955ebc8eee54a3fe1cb
     ReviewList:
       type: array
       items:
