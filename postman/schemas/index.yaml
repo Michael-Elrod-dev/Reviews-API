@@ -156,7 +156,7 @@ paths:
               type: string
       parameters:
         - $ref: '#components/parameters/DriverID'
-        - in: path
+        - in: query
           name: driverRating
           schema:
             type: integer
