@@ -39,7 +39,12 @@ paths:
     get:
       description: Retrieve a specific review
       parameters: # Can change later
-        - $ref: '#components/parameters/ReviewID' #changed parameter to a component - Emma :)
+      - name: review-id
+        in: path
+        description: ID of the review
+        required: true
+        schema:
+          type: integer
       responses:
         '200':
           description: Successfully retrieved the specified review
@@ -52,7 +57,12 @@ paths:
     patch: #Torrence
       description: "edit to existing review"
       parameters:
-        - $ref: '#components/parameters/ReviewID'
+      - name: review-id
+        in: path
+        description: ID of the review
+        required: true
+        schema:
+          type: integer
       responses:
         '200':
           description: 'Update successful'
