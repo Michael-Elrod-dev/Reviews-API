@@ -11,7 +11,7 @@ paths:
   /reviews:
     get:
       description: Returns a list of customers reviews
-      parameters: 
+      # parameters: 
         # leave blank for now
         # figure out components first
         # note from emma: i think this does not have any parameters :)
@@ -22,7 +22,7 @@ paths:
             application/json:
               schema:
                 type: array
-                items:
+                # items:
                   # figure out components for this line
         '400':
           $ref: '#components/responses/400Error'
@@ -39,7 +39,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/404Error'
+                $ref: '#/components/responses/404Error'
 
   /reviews/{id}: #Michael
     get:
@@ -76,13 +76,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/responses/403Error'
         '404':
           description: review not found
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/404Error'
+                $ref: '#/components/responses/404Error'
     delete: #Emma
       description: Deletes review at specified ID
       parameters:
@@ -97,7 +97,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/404Error'
+                $ref: '#/components/responses/404Error'
 
   /reviews/restaruant/{id}: # Michael
     get:
@@ -119,42 +119,42 @@ paths:
                 $ref: '#/components/schemas/ReviewList'
         '400':
           $ref: '#components/responses/400Error'
-      post: # Dhruvisha
-        description: Lets a customer post a review for a restaurant
-          requestBody:
-          required: true
+    post: # Dhruvisha
+      description: Lets a customer post a review for a restaurant
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: string
+      parameters:
+        - $ref: '#components/parameters/RestaurantID'
+      responses:
+        '200':
+          description: Successfully added a new review for a restaurant 
+        '400':
+          $ref: '#components/responses/400Error'
+    delete:
+      description: Deletes all reviews for a restaurant
+      parameters:
+      - $ref: '#components/parameters/RestaurantID'
+      responses:
+        '204':
+          description: Successfully deleted all reviews for given restaurant
+        '400':
+          $ref: '#components/responses/400Error'
+        '404':
+          description: Restaurant reviews not found
           content:
             application/json:
               schema:
-                type: string
-        parameters:
-        - $ref: '#components/parameters/RestaurantID'
-        responses:
-          '200':
-            description: Successfully added a new review for a restaurant 
-          '400':
-            $ref: '#components/responses/400Error'
-      delete:
-        description: Deletes all reviews for a restaurant
-        parameters:
-        - $ref: '#components/parameters/RestaurantID'
-        responses:
-          '204':
-            description: Successfully deleted all reviews for given restaurant
-          '400':
-            $ref: '#components/responses/400Error'
-          '404':
-            description: Restaurant reviews not found
-            content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/404Error'
+                $ref: '#/components/responses/404Error'
 
 
   /reviews/driver/{id}:  # Dhruvisha & Torrence
     get:
       description: Retrieve all reviews for a driver
-        requestBody:
+      requestBody:
         required: true
         content:
           application/json:
@@ -166,21 +166,23 @@ paths:
           name: driverRating
           schema:
             type: integer
-          required: false
+          required: true
           description: "Rating of the driver to retrieve reviews for"
       responses:
         '200':
-          descirption: Successfully retrieved reviews
-          schema:
-            type: object
-            properties:
-              reviews:
-              type: string
+          description: Successfully retrieved reviews
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  reviews:
+                    type: string
         '400':
           $ref: "#/components/responses/400Error"
     post:
       description: Add a review for a driver
-        requestBody:
+      requestBody:
         required: true
         content:
           application/json:
@@ -207,12 +209,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/404Error'
+                $ref: '#/components/responses/404Error'
 
   /reviews/{id}/comments:
     get:
       description: retrieves all comments for an existing review
-        requestBody:
+      requestBody:
         required: true
         content:
           application/json:
@@ -222,12 +224,14 @@ paths:
         - $ref: '#components/parameters/ReviewID'
       responses:
         '200':
-          descirption: Successfully retrieved reviews
-          schema:
-            type: object
-            properties:
-              reviews:
-              type: string
+          description: Successfully retrieved reviews
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  reviews:
+                    type: string
         '400':
           $ref: '#components/responses/400Error'
         '403':
@@ -235,7 +239,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/responses/403Error'
         '404':
           description: review not found
           content:
@@ -244,7 +248,7 @@ paths:
                 $ref: '#/components/schemas/ErrorMsg'
     post: # Dhruvisha
       description: Add a comment for an existing review
-        requestBody:
+      requestBody:
         required: true
         content:
           application/json:
@@ -257,21 +261,30 @@ paths:
           description: Successfully added a new comment for an existing review
         '400':
           $ref: '#components/responses/400Error'
-    delete: #TODO
+    #delete: #TODO
 
   /reviews/{id}/comments/{id}:
     get: #TODO (everything but params)
       parameters:
         - $ref: '#components/parameters/ReviewID'
         - $ref: '#components/parameters/CommentID'
+      responses:
+        '200':
+          description: Success
     patch: #TODO (everything but params)
       parameters:
         - $ref: '#components/parameters/ReviewID'
         - $ref: '#components/parameters/CommentID'
+      responses:
+        '200':
+          description: Success
     delete: #TODO (everything but params)
       parameters:
         - $ref: '#components/parameters/ReviewID'
         - $ref: '#components/parameters/CommentID'
+      responses:
+        '200':
+          description: Success
 
   /reviews/user/{id}: # Michael
     get:
@@ -287,8 +300,7 @@ paths:
                 $ref: '#/components/schemas/ReviewList'
         '400':
           $ref: '#/components/responses/400Error'
-    delete: #TODO
-
+    # delete: #TODO
   /health:  #Emma --> unsure if this is exactly what she wants for this or not
     get:
       description: Gets health of API
@@ -330,7 +342,7 @@ components:
         id:
           type: string
         rating: 
-          type: double
+          type: number
         comment:
           type: string
         user:
@@ -340,7 +352,7 @@ components:
         restuarant:
           type: string
         published:
-          type: int
+          type: string
     ReviewList:
       type: array
       items:
@@ -400,6 +412,15 @@ components:
       content:
         application/json:
           schema:
+            type: object
+            properties:
+              message:
+                type: string
+    403Error:
+      description: Not permitted Error
+      content:
+        application/json:
+          schema: 
             type: object
             properties:
               message:
