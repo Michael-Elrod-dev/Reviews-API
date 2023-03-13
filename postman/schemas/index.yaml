@@ -39,7 +39,7 @@ paths:
     get:
       description: Retrieve a specific review
       parameters: # Can change later
-      - name: review-id
+      - name: ReviewID
         in: path
         description: ID of the review
         required: true
@@ -57,7 +57,7 @@ paths:
     patch: #Torrence
       description: "edit to existing review"
       parameters:
-      - name: review-id
+      - name: ReviewID
         in: path
         description: ID of the review
         required: true
