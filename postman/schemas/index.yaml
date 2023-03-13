@@ -11,16 +11,11 @@ paths:
   /reviews:
     get:
       description: Returns a list of customers reviews
-      # parameters: 
-        # leave blank for now
-        # figure out components first
-        # note from emma: i think this does not have any parameters :)
       responses:
         '200':
           description: Successfully returned a list of customer reviews
         '400':
           $ref: '#components/responses/400Error'
-    #removed unnecessary POST request here -- whoever sees this can delete this line :)
     delete:
       description: Deletes all reviews
       responses:
@@ -39,12 +34,12 @@ paths:
     get:
       description: Retrieve a specific review
       parameters: # Can change later
-      - name: ReviewID
-        in: path
-        description: ID of the review
-        required: true
-        schema:
-          type: integer
+        - name: ReviewID
+          in: path
+          description: ID of the review
+          required: true
+          schema:
+            type: integer
       responses:
         '200':
           description: Successfully retrieved the specified review
@@ -57,12 +52,12 @@ paths:
     patch: #Torrence
       description: "edit to existing review"
       parameters:
-      - name: ReviewID
-        in: path
-        description: ID of the review
-        required: true
-        schema:
-          type: integer
+        - name: ReviewID
+          in: path
+          description: ID of the review
+          required: true
+          schema:
+            type: integer
       responses:
         '200':
           description: 'Update successful'
@@ -90,7 +85,12 @@ paths:
     delete: #Emma
       description: Deletes review at specified ID
       parameters:
-        - $ref: '#components/parameters/ReviewID'
+        - name: ReviewID
+          in: path
+          description: ID of the review
+          required: true
+          schema:
+            type: integer
       responses:
         '204':
           description: Review at given ID was successfully deleted.
@@ -107,7 +107,12 @@ paths:
     get:
       description: "Retrieve all reviews for a restaurant"
       parameters:
-        - $ref: '#components/parameters/RestaurantID'
+        - name: RestaurantID
+          in: path
+          description: ID of the restaurant
+          required: true
+          schema:
+            type: integer
         - in: query
           name: restaruantRating
           schema:
@@ -132,7 +137,12 @@ paths:
             schema:
               type: string
       parameters:
-        - $ref: '#components/parameters/RestaurantID'
+        - name: RestaurantID
+          in: path
+          description: ID of the restaurant
+          required: true
+          schema:
+            type: integer
       responses:
         '200':
           description: Successfully added a new review for a restaurant 
@@ -141,7 +151,12 @@ paths:
     delete:
       description: Deletes all reviews for a restaurant
       parameters:
-      - $ref: '#components/parameters/RestaurantID'
+      - name: RestaurantID
+        in: path
+        description: ID of the restaurant
+        required: true
+        schema:
+          type: integer
       responses:
         '204':
           description: Successfully deleted all reviews for given restaurant
@@ -165,7 +180,12 @@ paths:
             schema:
               type: string
       parameters:
-        - $ref: '#components/parameters/DriverID'
+        - name: DriverID
+          in: path
+          description: ID of the driver
+          required: true
+          schema:
+            type: integer
         - in: query
           name: driverRating
           schema:
@@ -193,7 +213,12 @@ paths:
             schema:
               type: string
       parameters:
-        - $ref: '#components/parameters/DriverID'
+        - name: DriverID
+          in: path
+          description: ID of the driver
+          required: true
+          schema:
+            type: integer
       responses:
         '200':
           description: Successfully added a new review for a driver 
@@ -202,7 +227,12 @@ paths:
     delete:
       description: Deletes all reviews for a driver
       parameters:
-        - $ref: '#components/parameters/DriverID'
+        - name: DriverID
+          in: path
+          description: ID of the driver
+          required: true
+          schema:
+            type: integer
       responses:
         '204':
           description: Successfully deleted all reviews for given driver
@@ -225,7 +255,12 @@ paths:
             schema:
               type: string
       parameters:
-        - $ref: '#components/parameters/ReviewID'
+        - name: ReviewID
+          in: path
+          description: ID of the review
+          required: true
+          schema:
+            type: integer
       responses:
         '200':
           description: Successfully retrieved reviews
@@ -259,7 +294,12 @@ paths:
             schema:
               type: string
       parameters:
-        - $ref: '#components/parameters/ReviewID'
+        - name: ReviewID
+          in: path
+          description: ID of the review
+          required: true
+          schema:
+            type: integer
       responses:
         '200':
           description: Successfully added a new comment for an existing review
@@ -270,22 +310,52 @@ paths:
   /reviews/{ReviewID}/comments/{CommentID}:
     get: #TODO (everything but params)
       parameters:
-        - $ref: '#components/parameters/ReviewID'
-        - $ref: '#components/parameters/CommentID'
+        - name: ReviewID
+          in: path
+          description: ID of the review
+          required: true
+          schema:
+            type: integer
+        - name: CommentID
+          in: path
+          description: ID of the comment
+          required: true
+          schema:
+            type: integer
       responses:
         '200':
           description: Success
     patch: #TODO (everything but params)
       parameters:
-        - $ref: '#components/parameters/ReviewID'
-        - $ref: '#components/parameters/CommentID'
+        - name: ReviewID
+          in: path
+          description: ID of the review
+          required: true
+          schema:
+            type: integer
+        - name: CommentID
+          in: path
+          description: ID of the comment
+          required: true
+          schema:
+            type: integer
       responses:
         '200':
           description: Success
     delete: #TODO (everything but params)
       parameters:
-        - $ref: '#components/parameters/ReviewID'
-        - $ref: '#components/parameters/CommentID'
+        - name: ReviewID
+          in: path
+          description: ID of the review
+          required: true
+          schema:
+            type: integer
+        - name: CommentID
+          in: path
+          description: ID of the comment
+          required: true
+          schema:
+            type: integer
       responses:
         '200':
           description: Success
@@ -294,7 +364,12 @@ paths:
     get:
       description: "Retrieve all reviews from a specific user"
       parameters:
-        - $ref: '#components/parameters/UserID'
+        - name: UserID
+          in: path
+          description: ID of the user
+          required: true
+          schema:
+            type: integer
       responses:
         '200':
           description: Successfully list the review from the specified user
@@ -363,43 +438,6 @@ components:
         $ref: '#/components/schemas/Review'
   #TODO: make a Reviews scheme
   #TODO: make a SingleReview scheme
-  
-  parameters:
-    ReviewID:
-      name: ReviewID
-      in: path
-      description: ID of the review
-      required: true
-      schema:
-        type: integer
-    CommentID:
-      name: CommentID
-      in: path
-      description: ID of the comment
-      required: true
-      schema:
-        type: integer
-    RestaurantID:
-      name: RestaurantID
-      in: path
-      description: ID of the restaurant
-      required: true
-      schema:
-        type: integer
-    DriverID:
-      name: DriverID
-      in: path
-      description: ID of the driver
-      required: true
-      schema:
-        type: integer
-    UserID:
-      name: UserID
-      in: path
-      description: ID of the user
-      required: true
-      schema:
-        type: integer
 
   responses:
     400Error:
