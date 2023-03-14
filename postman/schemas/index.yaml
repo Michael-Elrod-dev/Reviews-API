@@ -309,6 +309,7 @@ paths:
 
   /reviews/{ReviewID}/comments/{CommentID}:
     get: #TODO (everything but params)
+      description: "Gets a specific comment of a review"
       parameters:
         - name: ReviewID
           in: path
@@ -326,6 +327,7 @@ paths:
         '200':
           description: Success
     patch: #TODO (everything but params)
+      description: "edit a comment on a specific review"
       parameters:
         - name: ReviewID
           in: path
@@ -343,6 +345,7 @@ paths:
         '200':
           description: Success
     delete: #TODO (everything but params)
+      description: "delete a specific comment on a specific review"
       parameters:
         - name: ReviewID
           in: path
