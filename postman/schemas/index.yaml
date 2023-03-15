@@ -18,14 +18,14 @@ paths:
         '200':
           description: Successfully returned a list of customer reviews
         '400':
-          $ref: '#components/responses/400Error'
+          $ref: '#/components/responses/400Error'
     delete:
       description: Deletes all reviews
       responses:
         '204':
           description: Successfully deleted all reviews
         '400':
-          $ref: '#components/responses/400Error'
+          $ref: '#/components/responses/400Error'
         '404':
           $ref: '#/components/responses/404Error'
                 
@@ -48,7 +48,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Review'
         '400':
-          $ref: '#components/responses/400Error'
+          $ref: '#/components/responses/400Error'
     patch: #Torrence
       description: "edit to existing review"
       parameters:
@@ -69,7 +69,7 @@ paths:
                   message: 
                     type: string
         '400':
-          $ref: '#components/responses/400Error'
+          $ref: '#/components/responses/400Error'
         '403':
           $ref: '#/components/responses/403Error'
         '404':
@@ -87,7 +87,7 @@ paths:
         '204':
           description: Review at given ID was successfully deleted.
         '400':
-          $ref: '#components/responses/400Error'
+          $ref: '#/components/responses/400Error'
         '404':
           $ref: '#/components/responses/404Error'
 
@@ -115,7 +115,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ReviewList'
         '400':
-          $ref: '#components/responses/400Error'
+          $ref: '#/components/responses/400Error'
     post: # Dhruvisha
       description: Lets a customer post a review for a restaurant
       requestBody:
@@ -135,7 +135,7 @@ paths:
         '200':
           description: Successfully added a new review for a restaurant 
         '400':
-          $ref: '#components/responses/400Error'
+          $ref: '#/components/responses/400Error'
     delete:
       description: Deletes all reviews for a restaurant
       parameters:
@@ -149,7 +149,7 @@ paths:
         '204':
           description: Successfully deleted all reviews for given restaurant
         '400':
-          $ref: '#components/responses/400Error'
+          $ref: '#/components/responses/400Error'
         '404':
           $ref: '#/components/responses/404Error'
 
@@ -206,7 +206,7 @@ paths:
         '200':
           description: Successfully added a new review for a driver 
         '400':
-          $ref: '#components/responses/400Error'
+          $ref: '#/components/responses/400Error'
     delete:
       description: Deletes all reviews for a driver
       parameters:
@@ -220,7 +220,7 @@ paths:
         '204':
           description: Successfully deleted all reviews for given driver
         '400':
-          $ref: '#components/responses/400Error'
+          $ref: '#/components/responses/400Error'
         '404':
           $ref: '#/components/responses/404Error'
 
@@ -251,7 +251,7 @@ paths:
                   reviews:
                     type: string
         '400':
-          $ref: '#components/responses/400Error'
+          $ref: '#/components/responses/400Error'
         '403':
           $ref: '#/components/responses/403Error'
         '404':
@@ -275,7 +275,7 @@ paths:
         '200':
           description: Successfully added a new comment for an existing review
         '400':
-          $ref: '#components/responses/400Error'
+          $ref: '#/components/responses/400Error'
     delete:
       description: Deletes all comments at specified review
       parameters:
@@ -289,7 +289,7 @@ paths:
         '204':
           description: Comments at given review ID were successfully deleted.
         '400':
-          $ref: '#components/responses/400Error'
+          $ref: '#/components/responses/400Error'
         '404':
           $ref: '#/components/responses/404Error'
 
@@ -313,7 +313,7 @@ paths:
         '200':
           description: Successfully retrieved the specified comment
         '400':
-          $ref: '#components/responses/400Error'
+          $ref: '#/components/responses/400Error'
     patch:
       description: Edit a comment under a specific review
       parameters:
@@ -351,7 +351,7 @@ paths:
         '200':
           description: Successfully deletes the specified comment
         '400':
-          $ref: '#components/responses/400Error'
+          $ref: '#/components/responses/400Error'
 
   /reviews/user/{UserID}: # Michael
     get:
@@ -385,7 +385,7 @@ paths:
         '204':
           description: Reviews at given user ID were successfully deleted.
         '400':
-          $ref: '#components/responses/400Error'
+          $ref: '#/components/responses/400Error'
         '404':
           $ref: '#/components/responses/404Error'
 
