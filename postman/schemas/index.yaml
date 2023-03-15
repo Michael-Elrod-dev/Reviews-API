@@ -35,7 +35,7 @@ paths:
 
   /reviews/{ReviewID}: #Michael
     get:
-      description: Retrieve a specific review
+      description: Retrieve review with specified ID
       parameters: # Can change later
         - name: ReviewID
           in: path
@@ -250,7 +250,7 @@ paths:
 
   /reviews/{ReviewID}/comments:
     get:
-      description: retrieves all comments for an existing review
+      description: Retrieves all comments for an existing review
       requestBody:
         required: true
         content:
@@ -308,10 +308,30 @@ paths:
           description: Successfully added a new comment for an existing review
         '400':
           $ref: '#components/responses/400Error'
-    #delete: #TODO
+    delete:
+      description: Deletes all comments at specified review
+      parameters:
+        - name: ReviewID
+          in: path
+          description: ID of the review
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Comments at given review ID were successfully deleted.
+        '400':
+          $ref: '#components/responses/400Error'
+        '404':
+          description: Review with given ID was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/404Error'
 
   /reviews/{ReviewID}/comments/{CommentID}:
-    get: #TODO (everything but params)
+    get: #TODO (everything but params) # was it just description?
+      description: Retrieves comment with specified ID
       parameters:
         - name: ReviewID
           in: path
@@ -327,7 +347,9 @@ paths:
             type: integer
       responses:
         '200':
-          description: Success
+          description: Successfully retrieved the specified comment
+        '400':
+          $ref: '#components/responses/400Error'
     patch: #TODO (everything but params)
       parameters:
         - name: ReviewID
@@ -346,6 +368,7 @@ paths:
         '200':
           description: Success
     delete: #TODO (everything but params)
+      description: Deletes comment with specified ID
       parameters:
         - name: ReviewID
           in: path
@@ -361,7 +384,9 @@ paths:
             type: integer
       responses:
         '200':
-          description: Success
+          description: Successfully deletes the specified comment
+        '400':
+          $ref: '#components/responses/400Error'
 
   /reviews/user/{UserID}: # Michael
     get:
@@ -382,8 +407,28 @@ paths:
                 $ref: '#/components/schemas/ReviewList'
         '400':
           $ref: '#/components/responses/400Error'
-    # delete: #TODO
-  /health:  #Emma
+    delete:
+      description: Deletes all reviews from specified user
+      parameters:
+        - name: UserID
+          in: path
+          description: ID of the user
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Reviews at given user ID were successfully deleted.
+        '400':
+          $ref: '#components/responses/400Error'
+        '404':
+          description: User with given ID was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/404Error'
+
+  /health: # Emma
     get:
       description: Gets health of API
       responses:
