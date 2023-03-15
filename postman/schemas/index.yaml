@@ -27,11 +27,8 @@ paths:
         '400':
           $ref: '#components/responses/400Error'
         '404':
-          description: Reviews not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/responses/404Error'
+          $ref: '#/components/responses/404Error'
+                
 
   /reviews/{ReviewID}: #Michael
     get:
@@ -74,17 +71,9 @@ paths:
         '400':
           $ref: '#components/responses/400Error'
         '403':
-          description: Not permitted
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/responses/403Error'
+          $ref: '#/components/responses/403Error'
         '404':
-          description: review not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/responses/404Error'
+          $ref: '#/components/responses/404Error'
     delete: #Emma
       description: Deletes review at specified ID
       parameters:
@@ -100,11 +89,7 @@ paths:
         '400':
           $ref: '#components/responses/400Error'
         '404':
-          description: Review with given ID was not found.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/responses/404Error'
+          $ref: '#/components/responses/404Error'
 
   /reviews/restaruant/{RestaurantID}: # Michael
     get:
@@ -166,12 +151,7 @@ paths:
         '400':
           $ref: '#components/responses/400Error'
         '404':
-          description: Restaurant reviews not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/responses/404Error'
-
+          $ref: '#/components/responses/404Error'
 
   /reviews/driver/{DriverID}:  # Dhruvisha & Torrence
     get:
@@ -242,11 +222,7 @@ paths:
         '400':
           $ref: '#components/responses/400Error'
         '404':
-          description: Driver reviews not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/responses/404Error'
+          $ref: '#/components/responses/404Error'
 
   /reviews/{ReviewID}/comments:
     get:
@@ -277,17 +253,9 @@ paths:
         '400':
           $ref: '#components/responses/400Error'
         '403':
-          description: Not permitted
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/responses/403Error'
+          $ref: '#/components/responses/403Error'
         '404':
-          description: review not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorMsg'
+          $ref: '#/components/responses/404Error'
     post: # Dhruvisha
       description: Add a comment for an existing review
       requestBody:
@@ -323,11 +291,7 @@ paths:
         '400':
           $ref: '#components/responses/400Error'
         '404':
-          description: Review with given ID was not found.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/responses/404Error'
+          $ref: '#/components/responses/404Error'
 
   /reviews/{ReviewID}/comments/{CommentID}:
     get:
@@ -423,11 +387,7 @@ paths:
         '400':
           $ref: '#components/responses/400Error'
         '404':
-          description: User with given ID was not found.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/responses/404Error'
+          $ref: '#/components/responses/404Error'
 
   /health: # Emma
     get:
@@ -495,7 +455,7 @@ components:
               message:
                 type: string
     404Error:
-      description: Review not found with given ID
+      description: Not Found
       content:
         application/json:
           schema:
