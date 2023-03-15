@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   version: 1.0.0
   title: Customer Review API
-  description: API that handles Customer Reivews
+  description: API that handles Customer Reviews for restaurants and drivers, allowing users to view, create, edit, and delete reviews, as well as manage comments on reviews.
 
 security:
   - BasicAuth: []
@@ -123,7 +123,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Review'
+              type: string
       parameters:
         - name: RestaurantID
           in: path
@@ -194,7 +194,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Review'
+              type: string
       parameters:
         - name: DriverID
           in: path
