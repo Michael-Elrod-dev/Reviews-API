@@ -123,7 +123,7 @@ paths:
         content:
           application/json:
             schema:
-              type: string
+              $ref: '#/components/schemas/Review'
       parameters:
         - name: RestaurantID
           in: path
@@ -194,7 +194,7 @@ paths:
         content:
           application/json:
             schema:
-              type: string
+              $ref: '#/components/schemas/Review'
       parameters:
         - name: DriverID
           in: path
