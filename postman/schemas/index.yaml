@@ -36,7 +36,7 @@ paths:
   /reviews/{ReviewID}: #Michael
     get:
       description: Retrieve review with specified ID
-      parameters: # Can change later
+      parameters: 
         - name: ReviewID
           in: path
           description: ID of the review
@@ -330,7 +330,7 @@ paths:
                 $ref: '#/components/responses/404Error'
 
   /reviews/{ReviewID}/comments/{CommentID}:
-    get: #TODO (everything but params) # was it just description?
+    get:
       description: Retrieves comment with specified ID
       parameters:
         - name: ReviewID
@@ -350,7 +350,8 @@ paths:
           description: Successfully retrieved the specified comment
         '400':
           $ref: '#components/responses/400Error'
-    patch: #TODO (everything but params)
+    patch:
+      description: Edit a comment under a specific review
       parameters:
         - name: ReviewID
           in: path
@@ -367,7 +368,7 @@ paths:
       responses:
         '200':
           description: Success
-    delete: #TODO (everything but params)
+    delete:
       description: Deletes comment with specified ID
       parameters:
         - name: ReviewID
