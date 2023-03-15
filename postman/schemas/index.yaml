@@ -8,7 +8,7 @@ security:
   - BasicAuth: []
 
 servers:
-  - url: https://api.tigerchow.com/reviews
+  - url: https://api.tigerchow.com
 
 paths:
   /reviews:
