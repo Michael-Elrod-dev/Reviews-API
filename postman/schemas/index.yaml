@@ -397,8 +397,6 @@ paths:
                   server_health:
                     type: string
 
-#TODO: make more components probably... any time we are
-#getting back a review we should have a review component
 components:
   securitySchemes:
     BasicAuth:
@@ -439,8 +437,6 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/Review'
-  #TODO: make a Reviews scheme
-  #TODO: make a SingleReview scheme
 
   responses:
     400Error:
