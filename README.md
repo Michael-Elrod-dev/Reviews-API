@@ -28,12 +28,12 @@ To set up Swagger UI:
 
 1. Download and install the [Swagger UI](https://swagger.io/tools/swagger-ui/) distribution.
 2. Open the `index.html` file in a web browser.
-3. Enter the path to the `api.yaml` file in the "Explore" input field, and press Enter.
+3. Enter the path to the `index.yaml` file in the "Explore" input field, and press Enter.
 4. Explore the API documentation and interact with the API endpoints.
 
 To set up ReDoc:
 
 1. Download and install the [ReDoc](https://github.com/Redocly/redoc) distribution.
 2. Open the `index.html` file in a web browser.
-3. Update the `spec-url` attribute of the `redoc` element to point to the `api.yaml` file.
+3. Update the `spec-url` attribute of the `redoc` element to point to the `index.yaml` file.
 4. Explore the API documentation.
