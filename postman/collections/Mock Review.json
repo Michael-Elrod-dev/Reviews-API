@@ -1,0 +1,3089 @@
+{
+	"info": {
+		"_postman_id": "3b844007-273a-4ce3-a56e-2cccec6b0ca7",
+		"name": "Mock Review",
+		"description": "API that handles Customer Reivews",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "25917066-3b844007-273a-4ce3-a56e-2cccec6b0ca7"
+	},
+	"item": [
+		{
+			"name": "reviews",
+			"item": [
+				{
+					"name": "{ReviewID}",
+					"item": [
+						{
+							"name": "comments",
+							"item": [
+								{
+									"name": "{CommentID}",
+									"item": [
+										{
+											"name": "Retrieves comment with specified ID",
+											"id": "7a52a220-bc0d-4143-9853-0fd4b5fb431d",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/reviews/:ReviewID/comments/:CommentID",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"reviews",
+														":ReviewID",
+														"comments",
+														":CommentID"
+													],
+													"variable": [
+														{
+															"key": "ReviewID",
+															"value": "<integer>",
+															"description": "(Required) ID of the review"
+														},
+														{
+															"key": "CommentID",
+															"value": "<integer>",
+															"description": "(Required) ID of the comment"
+														}
+													]
+												},
+												"description": "Retrieves comment with specified ID"
+											},
+											"response": [
+												{
+													"id": "e0bf6882-307f-421a-8db2-8f38275c072f",
+													"name": "Successfully retrieved the specified comment",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: basic",
+																"key": "Authorization",
+																"value": "Basic <credentials>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/reviews/:ReviewID/comments/:CommentID",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"reviews",
+																":ReviewID",
+																"comments",
+																":CommentID"
+															],
+															"variable": [
+																{
+																	"key": "ReviewID",
+																	"value": "<integer>",
+																	"description": "(Required) ID of the review"
+																},
+																{
+																	"key": "CommentID",
+																	"value": "<integer>",
+																	"description": "(Required) ID of the comment"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"_postman_previewtype": "html",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"id": "55adb678-7054-400a-864e-1dd7bf8c9e54",
+													"name": "Invalid request",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: basic",
+																"key": "Authorization",
+																"value": "Basic <credentials>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/reviews/:ReviewID/comments/:CommentID",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"reviews",
+																":ReviewID",
+																"comments",
+																":CommentID"
+															],
+															"variable": [
+																{
+																	"key": "ReviewID",
+																	"value": "<integer>",
+																	"description": "(Required) ID of the review"
+																},
+																{
+																	"key": "CommentID",
+																	"value": "<integer>",
+																	"description": "(Required) ID of the comment"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"_postman_previewtype": "html",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"message\": \"<string>\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Edit a comment under a specific review",
+											"id": "6da62e71-f1eb-406e-8f59-fd6ec2f75fa6",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "PATCH",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/reviews/:ReviewID/comments/:CommentID",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"reviews",
+														":ReviewID",
+														"comments",
+														":CommentID"
+													],
+													"variable": [
+														{
+															"key": "ReviewID",
+															"value": "<integer>",
+															"description": "(Required) ID of the review"
+														},
+														{
+															"key": "CommentID",
+															"value": "<integer>",
+															"description": "(Required) ID of the comment"
+														}
+													]
+												},
+												"description": "Edit a comment under a specific review"
+											},
+											"response": [
+												{
+													"id": "6637876e-a1de-4fdf-9015-dffde99a5ea7",
+													"name": "Success",
+													"originalRequest": {
+														"method": "PATCH",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: basic",
+																"key": "Authorization",
+																"value": "Basic <credentials>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/reviews/:ReviewID/comments/:CommentID",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"reviews",
+																":ReviewID",
+																"comments",
+																":CommentID"
+															],
+															"variable": [
+																{
+																	"key": "ReviewID",
+																	"value": "<integer>",
+																	"description": "(Required) ID of the review"
+																},
+																{
+																	"key": "CommentID",
+																	"value": "<integer>",
+																	"description": "(Required) ID of the comment"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"_postman_previewtype": "html",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										},
+										{
+											"name": "Deletes comment with specified ID",
+											"id": "56e7fe27-7c1a-4a29-b5dc-02ea57a15d34",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/reviews/:ReviewID/comments/:CommentID",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"reviews",
+														":ReviewID",
+														"comments",
+														":CommentID"
+													],
+													"variable": [
+														{
+															"key": "ReviewID",
+															"value": "<integer>",
+															"description": "(Required) ID of the review"
+														},
+														{
+															"key": "CommentID",
+															"value": "<integer>",
+															"description": "(Required) ID of the comment"
+														}
+													]
+												},
+												"description": "Deletes comment with specified ID"
+											},
+											"response": [
+												{
+													"id": "e08f35c7-765e-4f97-8878-8be4dcf63cea",
+													"name": "Successfully deletes the specified comment",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: basic",
+																"key": "Authorization",
+																"value": "Basic <credentials>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/reviews/:ReviewID/comments/:CommentID",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"reviews",
+																":ReviewID",
+																"comments",
+																":CommentID"
+															],
+															"variable": [
+																{
+																	"key": "ReviewID",
+																	"value": "<integer>",
+																	"description": "(Required) ID of the review"
+																},
+																{
+																	"key": "CommentID",
+																	"value": "<integer>",
+																	"description": "(Required) ID of the comment"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"_postman_previewtype": "html",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"id": "7cd87e2a-5361-4bba-a0a7-c47a5343b205",
+													"name": "Invalid request",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: basic",
+																"key": "Authorization",
+																"value": "Basic <credentials>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/reviews/:ReviewID/comments/:CommentID",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"reviews",
+																":ReviewID",
+																"comments",
+																":CommentID"
+															],
+															"variable": [
+																{
+																	"key": "ReviewID",
+																	"value": "<integer>",
+																	"description": "(Required) ID of the review"
+																},
+																{
+																	"key": "CommentID",
+																	"value": "<integer>",
+																	"description": "(Required) ID of the comment"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"_postman_previewtype": "html",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"message\": \"<string>\"\n}"
+												}
+											]
+										}
+									],
+									"id": "e7cb46d3-0d11-4ade-b161-5bd5c5747613"
+								},
+								{
+									"name": "Retrieves all comments for an existing review",
+									"id": "39df2d8c-5917-4d9a-88b9-fd207faaaf48",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<string>",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/reviews/:ReviewID/comments",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												":ReviewID",
+												"comments"
+											],
+											"variable": [
+												{
+													"key": "ReviewID",
+													"value": "<integer>",
+													"description": "(Required) ID of the review"
+												}
+											]
+										},
+										"description": "Retrieves all comments for an existing review"
+									},
+									"response": [
+										{
+											"id": "14427d50-db42-43ac-a1d4-5ffd8e2f084b",
+											"name": "Successfully retrieved reviews",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<string>",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/reviews/:ReviewID/comments",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"reviews",
+														":ReviewID",
+														"comments"
+													],
+													"variable": [
+														{
+															"key": "ReviewID",
+															"value": "<integer>",
+															"description": "(Required) ID of the review"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"_postman_previewtype": "html",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"reviews\": \"<string>\"\n}"
+										},
+										{
+											"id": "87a0f683-3081-4ec7-b05e-c67dc1b3e83c",
+											"name": "Invalid request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<string>",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/reviews/:ReviewID/comments",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"reviews",
+														":ReviewID",
+														"comments"
+													],
+													"variable": [
+														{
+															"key": "ReviewID",
+															"value": "<integer>",
+															"description": "(Required) ID of the review"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"_postman_previewtype": "html",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\"\n}"
+										},
+										{
+											"id": "28ad6626-36b6-4186-82df-764f43848d20",
+											"name": "Not permitted Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<string>",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/reviews/:ReviewID/comments",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"reviews",
+														":ReviewID",
+														"comments"
+													],
+													"variable": [
+														{
+															"key": "ReviewID",
+															"value": "<integer>",
+															"description": "(Required) ID of the review"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"_postman_previewtype": "html",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\"\n}"
+										},
+										{
+											"id": "48df0edf-3180-49fb-9779-14f4e4e85ed3",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<string>",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/reviews/:ReviewID/comments",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"reviews",
+														":ReviewID",
+														"comments"
+													],
+													"variable": [
+														{
+															"key": "ReviewID",
+															"value": "<integer>",
+															"description": "(Required) ID of the review"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"_postman_previewtype": "html",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Add a comment for an existing review",
+									"id": "5fc62023-a767-45e1-9725-e7c93a378208",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<string>",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/reviews/:ReviewID/comments",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												":ReviewID",
+												"comments"
+											],
+											"variable": [
+												{
+													"key": "ReviewID",
+													"value": "<integer>",
+													"description": "(Required) ID of the review"
+												}
+											]
+										},
+										"description": "Add a comment for an existing review"
+									},
+									"response": [
+										{
+											"id": "f4cd48e9-6d6d-4848-889b-cc68842496aa",
+											"name": "Successfully added a new comment for an existing review",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<string>",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/reviews/:ReviewID/comments",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"reviews",
+														":ReviewID",
+														"comments"
+													],
+													"variable": [
+														{
+															"key": "ReviewID",
+															"value": "<integer>",
+															"description": "(Required) ID of the review"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"_postman_previewtype": "html",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"id": "efcde3a8-90a5-409c-b589-3b652917c9fc",
+											"name": "Invalid request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<string>",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/reviews/:ReviewID/comments",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"reviews",
+														":ReviewID",
+														"comments"
+													],
+													"variable": [
+														{
+															"key": "ReviewID",
+															"value": "<integer>",
+															"description": "(Required) ID of the review"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"_postman_previewtype": "html",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Deletes all comments at specified review",
+									"id": "1e9cb584-7cc6-451a-bb2d-95995bf98e3e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/:ReviewID/comments",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												":ReviewID",
+												"comments"
+											],
+											"variable": [
+												{
+													"key": "ReviewID",
+													"value": "<integer>",
+													"description": "(Required) ID of the review"
+												}
+											]
+										},
+										"description": "Deletes all comments at specified review"
+									},
+									"response": [
+										{
+											"id": "7bbaeb55-e05e-4219-8afc-2eedbaf01f29",
+											"name": "Comments at given review ID were successfully deleted.",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/reviews/:ReviewID/comments",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"reviews",
+														":ReviewID",
+														"comments"
+													],
+													"variable": [
+														{
+															"key": "ReviewID",
+															"value": "<integer>",
+															"description": "(Required) ID of the review"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"_postman_previewtype": "html",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"id": "9f15cffd-e4cd-49f8-a2b9-e66591097827",
+											"name": "Invalid request",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/reviews/:ReviewID/comments",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"reviews",
+														":ReviewID",
+														"comments"
+													],
+													"variable": [
+														{
+															"key": "ReviewID",
+															"value": "<integer>",
+															"description": "(Required) ID of the review"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"_postman_previewtype": "html",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\"\n}"
+										},
+										{
+											"id": "f6ba2bc4-0f66-48b1-9de0-dde14851b91b",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/reviews/:ReviewID/comments",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"reviews",
+														":ReviewID",
+														"comments"
+													],
+													"variable": [
+														{
+															"key": "ReviewID",
+															"value": "<integer>",
+															"description": "(Required) ID of the review"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"_postman_previewtype": "html",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "011a7f7d-c264-4ab0-a455-ccb4abf8b275"
+						},
+						{
+							"name": "Retrieve review with specified ID",
+							"id": "b3c6102e-e06f-4331-86c7-b5d7521001de",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reviews/:ReviewID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews",
+										":ReviewID"
+									],
+									"variable": [
+										{
+											"key": "ReviewID",
+											"value": "<integer>",
+											"description": "(Required) ID of the review"
+										}
+									]
+								},
+								"description": "Retrieve review with specified ID"
+							},
+							"response": [
+								{
+									"id": "e57ec92a-d097-448c-a6e8-93db24a5107d",
+									"name": "Successfully retrieved the specified review",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/:ReviewID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												":ReviewID"
+											],
+											"variable": [
+												{
+													"key": "ReviewID",
+													"value": "<integer>",
+													"description": "(Required) ID of the review"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"rating\": \"<number>\",\n  \"comment\": \"<string>\",\n  \"id\": \"<string>\",\n  \"user\": \"<string>\",\n  \"driver\": \"<string>\",\n  \"restuarant\": \"<string>\",\n  \"published\": \"<string>\"\n}"
+								},
+								{
+									"id": "fdd4fd3e-d9d1-41de-b49f-bb87b2665c63",
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/:ReviewID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												":ReviewID"
+											],
+											"variable": [
+												{
+													"key": "ReviewID",
+													"value": "<integer>",
+													"description": "(Required) ID of the review"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "edit to existing review",
+							"id": "b6c4a081-90cf-4206-8a89-bd469a1bfdba",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reviews/:ReviewID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews",
+										":ReviewID"
+									],
+									"variable": [
+										{
+											"key": "ReviewID",
+											"value": "<integer>",
+											"description": "(Required) ID of the review"
+										}
+									]
+								},
+								"description": "edit to existing review"
+							},
+							"response": [
+								{
+									"id": "247d3e01-faf7-4167-8f59-61f94fe4aafb",
+									"name": "Update successful",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/:ReviewID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												":ReviewID"
+											],
+											"variable": [
+												{
+													"key": "ReviewID",
+													"value": "<integer>",
+													"description": "(Required) ID of the review"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								},
+								{
+									"id": "99bb35dd-8ffc-4df5-abcf-402e48612c90",
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/:ReviewID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												":ReviewID"
+											],
+											"variable": [
+												{
+													"key": "ReviewID",
+													"value": "<integer>",
+													"description": "(Required) ID of the review"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								},
+								{
+									"id": "4a0ec22f-1b82-4ae8-b445-acb684f3fb06",
+									"name": "Not permitted Error",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/:ReviewID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												":ReviewID"
+											],
+											"variable": [
+												{
+													"key": "ReviewID",
+													"value": "<integer>",
+													"description": "(Required) ID of the review"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								},
+								{
+									"id": "5cb6b712-67ad-422f-8929-de9f3ce36c55",
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/:ReviewID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												":ReviewID"
+											],
+											"variable": [
+												{
+													"key": "ReviewID",
+													"value": "<integer>",
+													"description": "(Required) ID of the review"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Deletes review at specified ID",
+							"id": "eac8d958-6360-4733-af63-fb6d159353c8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reviews/:ReviewID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews",
+										":ReviewID"
+									],
+									"variable": [
+										{
+											"key": "ReviewID",
+											"value": "<integer>",
+											"description": "(Required) ID of the review"
+										}
+									]
+								},
+								"description": "Deletes review at specified ID"
+							},
+							"response": [
+								{
+									"id": "45c7940d-1b29-4288-b6d7-b5cd3ce41ca9",
+									"name": "Review at given ID was successfully deleted.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/:ReviewID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												":ReviewID"
+											],
+											"variable": [
+												{
+													"key": "ReviewID",
+													"value": "<integer>",
+													"description": "(Required) ID of the review"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "1ba9faf4-5b77-411f-9069-c6a3dc308453",
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/:ReviewID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												":ReviewID"
+											],
+											"variable": [
+												{
+													"key": "ReviewID",
+													"value": "<integer>",
+													"description": "(Required) ID of the review"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								},
+								{
+									"id": "657e8921-770d-4200-9918-bd5aed3fc1b5",
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/:ReviewID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												":ReviewID"
+											],
+											"variable": [
+												{
+													"key": "ReviewID",
+													"value": "<integer>",
+													"description": "(Required) ID of the review"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								}
+							]
+						}
+					],
+					"id": "b0642edf-3a29-44a0-9813-98a57f7cea0a"
+				},
+				{
+					"name": "restaruant/{RestaurantID}",
+					"item": [
+						{
+							"name": "Retrieve all reviews for a restaurant",
+							"id": "22cec7d5-18dc-40a2-ae71-c633d2b0cee1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reviews/restaruant/:RestaurantID?restaruantRating=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews",
+										"restaruant",
+										":RestaurantID"
+									],
+									"query": [
+										{
+											"key": "restaruantRating",
+											"value": "<integer>",
+											"description": "Rating of the restaurant to retrieve reviews for"
+										}
+									],
+									"variable": [
+										{
+											"key": "RestaurantID",
+											"value": "<integer>",
+											"description": "(Required) ID of the restaurant"
+										}
+									]
+								},
+								"description": "Retrieve all reviews for a restaurant"
+							},
+							"response": [
+								{
+									"id": "bfef0b05-690f-4674-bfac-f4db16b922bd",
+									"name": "Successfully list the specified review",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/restaruant/:RestaurantID?restaruantRating=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												"restaruant",
+												":RestaurantID"
+											],
+											"query": [
+												{
+													"key": "restaruantRating",
+													"value": "<integer>"
+												}
+											],
+											"variable": [
+												{
+													"key": "RestaurantID",
+													"value": "<integer>",
+													"description": "(Required) ID of the restaurant"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"rating\": \"<number>\",\n    \"comment\": \"<string>\",\n    \"id\": \"<string>\",\n    \"user\": \"<string>\",\n    \"driver\": \"<string>\",\n    \"restuarant\": \"<string>\",\n    \"published\": \"<string>\"\n  },\n  {\n    \"rating\": \"<number>\",\n    \"comment\": \"<string>\",\n    \"id\": \"<string>\",\n    \"user\": \"<string>\",\n    \"driver\": \"<string>\",\n    \"restuarant\": \"<string>\",\n    \"published\": \"<string>\"\n  }\n]"
+								},
+								{
+									"id": "495869b3-b5a9-4a3a-b84f-26d247e7e2c2",
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/restaruant/:RestaurantID?restaruantRating=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												"restaruant",
+												":RestaurantID"
+											],
+											"query": [
+												{
+													"key": "restaruantRating",
+													"value": "<integer>"
+												}
+											],
+											"variable": [
+												{
+													"key": "RestaurantID",
+													"value": "<integer>",
+													"description": "(Required) ID of the restaurant"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Lets a customer post a review for a restaurant",
+							"id": "c0184597-dcf6-4783-a6a3-05033f4650dd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"rating\": \"<number>\",\n  \"comment\": \"<string>\",\n  \"id\": \"<string>\",\n  \"user\": \"<string>\",\n  \"driver\": \"<string>\",\n  \"restuarant\": \"<string>\",\n  \"published\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/reviews/restaruant/:RestaurantID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews",
+										"restaruant",
+										":RestaurantID"
+									],
+									"variable": [
+										{
+											"key": "RestaurantID",
+											"value": "<integer>",
+											"description": "(Required) ID of the restaurant"
+										}
+									]
+								},
+								"description": "Lets a customer post a review for a restaurant"
+							},
+							"response": [
+								{
+									"id": "fd7b6289-9358-43d7-850d-9e5099084c2b",
+									"name": "Successfully added a new review for a restaurant",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"rating\": \"<number>\",\n  \"comment\": \"<string>\",\n  \"id\": \"<string>\",\n  \"user\": \"<string>\",\n  \"driver\": \"<string>\",\n  \"restuarant\": \"<string>\",\n  \"published\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/reviews/restaruant/:RestaurantID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												"restaruant",
+												":RestaurantID"
+											],
+											"variable": [
+												{
+													"key": "RestaurantID",
+													"value": "<integer>",
+													"description": "(Required) ID of the restaurant"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "6c1f5f3e-a442-4e06-9a50-9c4d0a576020",
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"rating\": \"<number>\",\n  \"comment\": \"<string>\",\n  \"id\": \"<string>\",\n  \"user\": \"<string>\",\n  \"driver\": \"<string>\",\n  \"restuarant\": \"<string>\",\n  \"published\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/reviews/restaruant/:RestaurantID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												"restaruant",
+												":RestaurantID"
+											],
+											"variable": [
+												{
+													"key": "RestaurantID",
+													"value": "<integer>",
+													"description": "(Required) ID of the restaurant"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Deletes all reviews for a restaurant",
+							"id": "d84936e3-3082-4738-bb23-4ebed5a2a26f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reviews/restaruant/:RestaurantID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews",
+										"restaruant",
+										":RestaurantID"
+									],
+									"variable": [
+										{
+											"key": "RestaurantID",
+											"value": "<integer>",
+											"description": "(Required) ID of the restaurant"
+										}
+									]
+								},
+								"description": "Deletes all reviews for a restaurant"
+							},
+							"response": [
+								{
+									"id": "9f6e4f35-3af6-45af-a765-0d0b0edc5f11",
+									"name": "Successfully deleted all reviews for given restaurant",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/restaruant/:RestaurantID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												"restaruant",
+												":RestaurantID"
+											],
+											"variable": [
+												{
+													"key": "RestaurantID",
+													"value": "<integer>",
+													"description": "(Required) ID of the restaurant"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "bf45b8d7-fa3d-43cd-a00d-72f6c89e7ee2",
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/restaruant/:RestaurantID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												"restaruant",
+												":RestaurantID"
+											],
+											"variable": [
+												{
+													"key": "RestaurantID",
+													"value": "<integer>",
+													"description": "(Required) ID of the restaurant"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								},
+								{
+									"id": "69206316-b66a-4f29-8e71-8270f043027e",
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/restaruant/:RestaurantID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												"restaruant",
+												":RestaurantID"
+											],
+											"variable": [
+												{
+													"key": "RestaurantID",
+													"value": "<integer>",
+													"description": "(Required) ID of the restaurant"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								}
+							]
+						}
+					],
+					"id": "86c5886c-30c1-49ed-bc33-5a36bc93c9fe"
+				},
+				{
+					"name": "driver/{DriverID}",
+					"item": [
+						{
+							"name": "Retrieve all reviews for a driver",
+							"id": "38ef911d-429d-4ebe-bbe0-533daf2f2e13",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<string>",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/reviews/driver/:DriverID?driverRating=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews",
+										"driver",
+										":DriverID"
+									],
+									"query": [
+										{
+											"key": "driverRating",
+											"value": "<integer>",
+											"description": "(Required) Rating of the driver to retrieve reviews for"
+										}
+									],
+									"variable": [
+										{
+											"key": "DriverID",
+											"value": "<integer>",
+											"description": "(Required) ID of the driver"
+										}
+									]
+								},
+								"description": "Retrieve all reviews for a driver"
+							},
+							"response": [
+								{
+									"id": "51a749b5-c93e-4969-82e6-61ec3aa9bede",
+									"name": "Successfully retrieved reviews",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<string>",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/reviews/driver/:DriverID?driverRating=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												"driver",
+												":DriverID"
+											],
+											"query": [
+												{
+													"key": "driverRating",
+													"value": "<integer>"
+												}
+											],
+											"variable": [
+												{
+													"key": "DriverID",
+													"value": "<integer>",
+													"description": "(Required) ID of the driver"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"reviews\": \"<string>\"\n}"
+								},
+								{
+									"id": "d5edfa66-071d-4896-9c38-44cf00dc7113",
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<string>",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/reviews/driver/:DriverID?driverRating=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												"driver",
+												":DriverID"
+											],
+											"query": [
+												{
+													"key": "driverRating",
+													"value": "<integer>"
+												}
+											],
+											"variable": [
+												{
+													"key": "DriverID",
+													"value": "<integer>",
+													"description": "(Required) ID of the driver"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Add a review for a driver",
+							"id": "54cb27c8-5ee4-4426-859f-1eefd11afa13",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"rating\": \"<number>\",\n  \"comment\": \"<string>\",\n  \"id\": \"<string>\",\n  \"user\": \"<string>\",\n  \"driver\": \"<string>\",\n  \"restuarant\": \"<string>\",\n  \"published\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/reviews/driver/:DriverID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews",
+										"driver",
+										":DriverID"
+									],
+									"variable": [
+										{
+											"key": "DriverID",
+											"value": "<integer>",
+											"description": "(Required) ID of the driver"
+										}
+									]
+								},
+								"description": "Add a review for a driver"
+							},
+							"response": [
+								{
+									"id": "ec2d717d-7748-4b6e-a532-55e4b1bb56b2",
+									"name": "Successfully added a new review for a driver",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"rating\": \"<number>\",\n  \"comment\": \"<string>\",\n  \"id\": \"<string>\",\n  \"user\": \"<string>\",\n  \"driver\": \"<string>\",\n  \"restuarant\": \"<string>\",\n  \"published\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/reviews/driver/:DriverID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												"driver",
+												":DriverID"
+											],
+											"variable": [
+												{
+													"key": "DriverID",
+													"value": "<integer>",
+													"description": "(Required) ID of the driver"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "b677f93a-d632-4f8d-8aa5-240ce031f025",
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"rating\": \"<number>\",\n  \"comment\": \"<string>\",\n  \"id\": \"<string>\",\n  \"user\": \"<string>\",\n  \"driver\": \"<string>\",\n  \"restuarant\": \"<string>\",\n  \"published\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/reviews/driver/:DriverID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												"driver",
+												":DriverID"
+											],
+											"variable": [
+												{
+													"key": "DriverID",
+													"value": "<integer>",
+													"description": "(Required) ID of the driver"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Deletes all reviews for a driver",
+							"id": "201d4aea-d5ca-4d9f-ba0a-7d077230270e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reviews/driver/:DriverID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews",
+										"driver",
+										":DriverID"
+									],
+									"variable": [
+										{
+											"key": "DriverID",
+											"value": "<integer>",
+											"description": "(Required) ID of the driver"
+										}
+									]
+								},
+								"description": "Deletes all reviews for a driver"
+							},
+							"response": [
+								{
+									"id": "d11f4293-2e86-4fde-b79b-3a275ac1d4ea",
+									"name": "Successfully deleted all reviews for given driver",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/driver/:DriverID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												"driver",
+												":DriverID"
+											],
+											"variable": [
+												{
+													"key": "DriverID",
+													"value": "<integer>",
+													"description": "(Required) ID of the driver"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "fc2aea52-7a47-4176-8b65-a5f48f46986d",
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/driver/:DriverID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												"driver",
+												":DriverID"
+											],
+											"variable": [
+												{
+													"key": "DriverID",
+													"value": "<integer>",
+													"description": "(Required) ID of the driver"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								},
+								{
+									"id": "ed14d404-35a3-478b-a9c5-e91eb65d244e",
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/driver/:DriverID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												"driver",
+												":DriverID"
+											],
+											"variable": [
+												{
+													"key": "DriverID",
+													"value": "<integer>",
+													"description": "(Required) ID of the driver"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								}
+							]
+						}
+					],
+					"id": "06b2fa82-664d-4ffe-b55d-000bd0cd5009"
+				},
+				{
+					"name": "user/{UserID}",
+					"item": [
+						{
+							"name": "Retrieve all reviews from a specific user",
+							"id": "1d4a2ca1-a6d0-4436-b1d4-e31ceef0c719",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reviews/user/:UserID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews",
+										"user",
+										":UserID"
+									],
+									"variable": [
+										{
+											"key": "UserID",
+											"value": "<integer>",
+											"description": "(Required) ID of the user"
+										}
+									]
+								},
+								"description": "Retrieve all reviews from a specific user"
+							},
+							"response": [
+								{
+									"id": "c6e190b0-88e6-4d7d-9f44-85b4fa4f6ad9",
+									"name": "Successfully list the review from the specified user",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/user/:UserID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												"user",
+												":UserID"
+											],
+											"variable": [
+												{
+													"key": "UserID",
+													"value": "<integer>",
+													"description": "(Required) ID of the user"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"rating\": \"<number>\",\n    \"comment\": \"<string>\",\n    \"id\": \"<string>\",\n    \"user\": \"<string>\",\n    \"driver\": \"<string>\",\n    \"restuarant\": \"<string>\",\n    \"published\": \"<string>\"\n  },\n  {\n    \"rating\": \"<number>\",\n    \"comment\": \"<string>\",\n    \"id\": \"<string>\",\n    \"user\": \"<string>\",\n    \"driver\": \"<string>\",\n    \"restuarant\": \"<string>\",\n    \"published\": \"<string>\"\n  }\n]"
+								},
+								{
+									"id": "0e6344d0-8c96-47ab-af87-218c62280634",
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/user/:UserID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												"user",
+												":UserID"
+											],
+											"variable": [
+												{
+													"key": "UserID",
+													"value": "<integer>",
+													"description": "(Required) ID of the user"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Deletes all reviews from specified user",
+							"id": "94bb256f-627a-4f85-993a-b307204d019d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reviews/user/:UserID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews",
+										"user",
+										":UserID"
+									],
+									"variable": [
+										{
+											"key": "UserID",
+											"value": "<integer>",
+											"description": "(Required) ID of the user"
+										}
+									]
+								},
+								"description": "Deletes all reviews from specified user"
+							},
+							"response": [
+								{
+									"id": "8170524c-b2fb-4322-a234-fe4adb90f192",
+									"name": "Reviews at given user ID were successfully deleted.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/user/:UserID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												"user",
+												":UserID"
+											],
+											"variable": [
+												{
+													"key": "UserID",
+													"value": "<integer>",
+													"description": "(Required) ID of the user"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "98aed1b4-e5c4-40a8-a518-dd7c266f4241",
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/user/:UserID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												"user",
+												":UserID"
+											],
+											"variable": [
+												{
+													"key": "UserID",
+													"value": "<integer>",
+													"description": "(Required) ID of the user"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								},
+								{
+									"id": "355821cd-fb8c-48c3-b503-bbcc3a5cb409",
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/user/:UserID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												"user",
+												":UserID"
+											],
+											"variable": [
+												{
+													"key": "UserID",
+													"value": "<integer>",
+													"description": "(Required) ID of the user"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"_postman_previewtype": "html",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								}
+							]
+						}
+					],
+					"id": "048649e2-a061-4016-8e38-351dc472e233"
+				},
+				{
+					"name": "Returns a list of customers reviews",
+					"id": "583925f6-88ae-4e62-85bc-ef9c5c8e8c70",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/reviews",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews"
+							]
+						},
+						"description": "Returns a list of customers reviews"
+					},
+					"response": [
+						{
+							"id": "c5162a18-b3ea-45b7-accb-c1cd083c8466",
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reviews",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"_postman_previewtype": "html",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "a61bf81b-db5f-4d7c-9d92-ade53dd4f10c",
+							"name": "Invalid request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reviews",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "html",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Deletes all reviews",
+					"id": "eeaae1ff-3fe0-4771-b948-955bcb69657c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/reviews",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews"
+							]
+						},
+						"description": "Deletes all reviews"
+					},
+					"response": [
+						{
+							"id": "f09a6b24-3fd2-470c-9ce9-a5d0947149eb",
+							"name": "Successfully deleted all reviews",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reviews",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "text",
+							"_postman_previewtype": "html",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "3c9a055e-ca45-4f15-9124-23271ae30845",
+							"name": "Invalid request",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reviews",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "html",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\"\n}"
+						},
+						{
+							"id": "06a6697c-d846-44e7-9dda-199c56dbf468",
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reviews",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "html",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\"\n}"
+						}
+					]
+				}
+			],
+			"id": "3a387792-ce4d-4038-a697-6dcc7a1d4a03"
+		},
+		{
+			"name": "Gets health of API",
+			"id": "e5749ad5-6ee7-4037-bf68-86f030771805",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/health",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"health"
+					]
+				},
+				"description": "Gets health of API"
+			},
+			"response": [
+				{
+					"id": "9ab67eff-4c71-432c-9305-a90177c03c45",
+					"name": "Successful call to health",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: basic",
+								"key": "Authorization",
+								"value": "Basic <credentials>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/health",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"server_health\": \"<string>\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "{{basicAuthUsername}}",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "{{basicAuthPassword}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"id": "fd28ee01-598e-4d90-8005-e0e7e48bd672",
+			"key": "baseUrl",
+			"value": "https://api.tigerchow.com",
+			"type": "string"
+		}
+	]
+}

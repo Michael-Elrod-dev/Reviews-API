@@ -1,0 +1,531 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Customer Review API
+  description: API that handles retrieiving, posting, patching, and deleting of customer reviews and comments
+
+security:
+  - BasicAuth: []
+
+servers:
+  - url: https://api.tigerchow.com
+
+paths:
+  /reviews:
+    get:
+      description: Returns a list of customer reviews each containing a rating, caption, and comments from other users
+      responses:
+        '200':
+          description: Successfully found and returned a list of all customer reviews on the site
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewList'
+        '400':
+          $ref: '#/components/responses/400Error'
+    delete:
+      description: Deletes all reviews that exist on the site
+      responses:
+        '204':
+          description: Successfully deleted all reviews on the site
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+                
+
+  /reviews/{ReviewID}:
+    get:
+      description: Retrieves a review with the specified review ID number
+      parameters: 
+        - name: ReviewID
+          in: path
+          description: Unique ID number of the review to be retrieved
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved the review associated with the specified ID number
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Review'
+        '400':
+          $ref: '#/components/responses/400Error'
+    patch:
+      description: Updates a review with the specified review ID number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                rating: 
+                  type: number
+                comment:
+                  type: string
+                published:
+                  type: string
+                  
+      parameters:
+        - name: ReviewID
+          in: path
+          description: Unique ID number of the review to be updated
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully updated the review associated with the specified ID number
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Review'
+        '400':
+          $ref: '#/components/responses/400Error'
+        '403':
+          $ref: '#/components/responses/403Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+    delete:
+      description: Deletes a review with the specified review ID number
+      parameters:
+        - name: ReviewID
+          in: path
+          description: Unique ID of the review to be deleted
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Successfully deleted the review associated with the specified ID number
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+
+  /reviews/restaruant/{RestaurantID}/comments:
+    get:
+      description: Retrieves all reviews with the specified restaurant ID number
+      parameters:
+        - name: RestaurantID
+          in: path
+          description: Unique ID of the restaurant to retrieve reviews for
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: restaruantRating
+          schema:
+            type: integer
+          required: false
+          description: Numeric rating of the restaurant to retrieve reviews for
+      responses:
+        '200':
+          description: Successfully return the list of reviews for the specified restaurant
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewList'
+        '400':
+          $ref: '#/components/responses/400Error'
+    post:
+      description: Posts a new review for a restaurant with the specified restaurant ID number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Review'
+      parameters:
+        - name: RestaurantID
+          in: path
+          description: Unique ID of the restaurant to post a review for
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully posted a new review for a restaurant with the specified restaurant ID number
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: 
+                  message: 
+                    type: integer
+        '400':
+          $ref: '#/components/responses/400Error'
+    delete:
+      description: Deletes all reviews for a restaurant associated with the specified restaurant ID number
+      parameters:
+      - name: RestaurantID
+        in: path
+        description: Unique ID of the restaurant to delete reviews for
+        required: true
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: Successfully deleted all reviews for a restaurant with the specified restaurant ID number
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+
+  /reviews/driver/{DriverID}:
+    get:
+      description: Retrieves all reviews for a driver associated with the specifed driver ID number
+      parameters:
+        - name: DriverID
+          in: path
+          description: Unique ID number of the driver to retrieve reviews for
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: driverRating
+          schema:
+            type: integer
+          required: false
+          description: Numeric rating of the driver to retrieve reviews for
+      responses:
+        '200':
+          description: Successfully retrieved all reviews for the driver associated with the specified driver ID number
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewList'
+        '400':
+          $ref: "#/components/responses/400Error"
+    post:
+      description: Posts a new review for a driver associated with the specifed ID number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Review'
+      parameters:
+        - name: DriverID
+          in: path
+          description: Unique ID number of the driver to post a new review for
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully posted a new review for the driver associated with the specified driver ID number
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: 
+                  message: 
+                    type: integer
+        '400':
+          $ref: '#/components/responses/400Error'
+    delete:
+      description: Deletes all reviews for a driver associated with the specifed ID number
+      parameters:
+        - name: DriverID
+          in: path
+          description: Unique ID number of the driver to delete all reviews for
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Successfully deleted all reviews for the driver associated with the specified driver ID number
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+
+  /reviews/{ReviewID}/comments:
+    get:
+      description: Retrieves all comments for a review associated with the specifed review ID number
+      parameters:
+        - name: ReviewID
+          in: path
+          description: Unique ID number of the review to retireve all comments for
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved all comments for the review associated with the specified review ID number
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  comment:
+                    type: string
+        '400':
+          $ref: '#/components/responses/400Error'
+        '403':
+          $ref: '#/components/responses/403Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+    post:
+      description: Posts a new comment for an existing review associated with the specifed review ID number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                comment:
+                  type: string
+      parameters:
+        - name: ReviewID
+          in: path
+          description: Unique ID number of the review to post a new comment for
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully posted a new comment to an existing review associated with the specified review ID number
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: 
+                  message: 
+                    type: integer
+        '400':
+          $ref: '#/components/responses/400Error'
+    delete:
+      description: Deletes all comments for an existing review associated with the specifed review ID number
+      parameters:
+        - name: ReviewID
+          in: path
+          description: Unique ID of the review to delete all comments for
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Successfully deleted all comments for an existing review associated with the specified review ID number
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+
+  /reviews/{ReviewID}/comments/{CommentID}:
+    get:
+      description: Retrieves an existing comment for an existing review associated with the specifed review and comments ID numbers
+      parameters:
+        - name: ReviewID
+          in: path
+          description: Unique ID of the review to retrieve the comment for
+          required: true
+          schema:
+            type: integer
+        - name: CommentID
+          in: path
+          description: Unique ID of the comment to retrieve
+          required: true
+          schema:
+            type: object
+            properties:
+              comment:
+                type: string
+      responses:
+        '200':
+          description: Successfully retrieved an existing comment for an existing review associated with the specifed review and comments ID numbers
+          content:
+            application/json:
+              schema:
+                type: string
+        '400':
+          $ref: '#/components/responses/400Error'
+    patch:
+      description: Updates an existing comment for an existing review associated with the specifed review and comments ID numbers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                comment:
+                  type: string
+      parameters:
+        - name: ReviewID
+          in: path
+          description: Unique ID of the review to retrieve the comment for
+          required: true
+          schema:
+            type: integer
+        - name: CommentID
+          in: path
+          description: Unique ID of the comment to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Succesfully updated an existing comment for an existing review associated with the specifed review and comments ID numbers
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  comment:
+                    type: string
+    delete:
+      description: Deletes an existing comment for an existing review associated with the specifed review and comments ID numbers
+      parameters:
+        - name: ReviewID
+          in: path
+          description: Unique ID of the review to retrieve the comment for
+          required: true
+          schema:
+            type: integer
+        - name: CommentID
+          in: path
+          description: Unique ID of the comment to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Succefully deleted an existing comment for an existing review associated with the specifed review and comments ID numbers
+        '400':
+          $ref: '#/components/responses/400Error'
+
+  /reviews/user/{UserID}:
+    get:
+      description: Retrieves all reviews posted by a specific user associated with the specified user ID number
+      parameters:
+        - name: UserID
+          in: path
+          description: Unique ID of the user to retireve reviews for
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieves all reviews posted by a specific user associated with the specified user ID number
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewList'
+        '400':
+          $ref: '#/components/responses/400Error'
+    delete:
+      description: Deletes all reviews posted by a specific user associated with the specified user ID number
+      parameters:
+        - name: UserID
+          in: path
+          description: Unique ID of the user to delete all reviews for
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Successfully deleted all reviews posted by a specific user associated with the specified user ID number
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+
+  /health:
+    get:
+      description: Gets the health of API
+      responses:
+        '200':
+          description: Successfully returns the current health of the API
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  server_health:
+                    type: string
+
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+  
+  schemas:
+    ErrorMsg:
+      description: Represents an error message that may be returned by the API if there is an error
+      type: object
+      properties:   
+        message:
+          type: string
+    Review:
+      description: Represents a user review for a driver or a restaurant
+      type: object
+      required:
+      - Review-id
+      - rating
+      - userId
+      - driver-id/restuarant-id
+      - comment
+      - published/date
+      properties:
+        id:
+          description: the unique ID of the review that can be for a restaurant or a driver
+          type: integer
+        rating: 
+          description: the numeric rating given to either a restuarant or driver in the review
+          type: number
+        comment:
+          description: represents the IDs of the comments left under a certain review
+          type: string
+        user:
+          description: the unique ID of the user who left the review
+          type: string
+        driver:
+          description: the unique ID of the driver that delivered the order that is being reviewed
+          type: string
+        restuarant:
+          description: the unique ID of the restuarant from the order that is being reviewed
+          type: string
+        published:
+          description: the date that the review was published
+          type: string
+    ReviewList:
+      description: Represents an array of user reviews for a driver or restuarant
+      type: array
+      items:
+        $ref: '#/components/schemas/Review'
+
+  responses:
+    400Error:
+      description: Invalid Request Error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+    404Error:
+      description: Not Found Error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+    403Error:
+      description: Not Permitted Error
+      content:
+        application/json:
+          schema: 
+            type: object
+            properties:
+              message:
+                type: string
