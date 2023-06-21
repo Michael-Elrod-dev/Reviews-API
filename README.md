@@ -1,6 +1,12 @@
 # Customer Review API
 
-This repository contains an OpenAPI 3.0 YAML file for the Customer Review API. The API handles customer reviews for restaurants and drivers, allowing users to view, create, edit, and delete reviews, as well as manage comments on reviews.
+This repository houses the evolved Customer Review API, initially an OpenAPI 3.0 YAML file in Postman, and later materialized into a full-fledged API using AWS API Gateway, Lambda, and DynamoDB.
+
+The API was crafted collaboratively by a team using the AWS Educate program's resources, granting us access to the student version of AWS.
+
+Our API handles the lifecycle of customer reviews for restaurants and drivers. The operations include the ability to create, view, edit, and delete reviews. Moreover, users can manage comments on the reviews, adding an extra layer of interactivity and engagement.
+
+By using AWS API Gateway, we ensure secure and smooth data traffic. Lambda allows us to execute our code without provisioning or managing servers, and DynamoDB, a NoSQL database service, provides fast and predictable performance with seamless scalability.
 
 ## Overview
 
@@ -12,13 +18,6 @@ The API provides endpoints for the following operations:
 - Adding and managing comments on reviews
 - Retrieving and deleting reviews by user
 - Checking API health
-
-## How to Use
-
-1. Clone the repository.
-2. Import the `index.yaml` file into an API development environment, such as Postman or Swagger.
-3. Set up a server that implements the API endpoints according to the specification in the YAML file.
-4. Test the API endpoints using an API client.
 
 ## API Documentation
 
